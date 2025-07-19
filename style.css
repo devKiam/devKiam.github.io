@@ -1,0 +1,106 @@
+@import url('./Fonts/WEB/css/satoshi.css');
+/* @font-face {
+    font-family: 'Satoshi-Light', 'Satoshi-LightItalic, Satoshi-Regular', 'Satoshi-Italic', 'Satoshi-Medium', 'Satoshi-MediumItalic', 'Satoshi-Bold', 'Satoshi-BoldItalic', 'Satoshi-Black', 'Satoshi-BlackItalic', 'Satoshi-Variable', 'Satoshi-VariableItalic';
+} */
+
+* {
+    font-family: 'Satoshi-Regular', sans-serif;
+}
+
+.font-essentials {
+    font-size:large;
+    color: #595959;
+}
+
+.font-medium {
+    font-size: 0.9em;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.text-justify {
+    text-align: justify;
+}
+
+.sticky-col {
+    position: sticky;
+    top: 56px; /* Or any other desired offset from the top */
+    height: calc(100vh - 56px); /* Optional: Make it the full height of the viewport */
+    overflow-y: auto; /* Optional: If the content inside might overflow */
+}
+
+/* Disable sticky behavior on small screens (below md breakpoint) */
+@media (max-width: 767.98px) {
+    .sticky-col {
+      position: static; /* Revert to normal static positioning */
+      top: auto;
+      height: auto;
+    }
+}
+
+.my-name {
+    color: #39c;
+}
+
+.my-name:hover {
+    color: rgb(9, 100, 146);
+}
+
+
+/* for fitting text without wrapping (JS connected) */
+.fit-my-name {
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%; /* Make it take up full row */
+}
+
+.fit-text {
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%; /* Make it take up full row */
+}
+/* for fitting text without wrapping (JS connected) */
+
+/* Add scroll offset for anchor targets so they don't hide under the sticky navbar */
+#about,
+#research_interest {
+    scroll-margin-top: 60px; /* Adjust to match your navbar height */
+}
+#publications {
+  scroll-margin-top: 60px; /* Adjust to match your navbar height */
+}
+#projects {
+  scroll-margin-top: 60px; /* Adjust to match your navbar height */
+}
+#blogs {
+  scroll-margin-top: 60px; /* Adjust to match your navbar height */
+}
+
+/* Sliding page transition */
+.page-transition {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: #fff;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(.77,0,.175,1);
+  transform: translateX(-100vw); /* Start off-screen to the left */
+}
+.page-transition.active {
+  transform: translateX(0); /* Slide in */
+}
+.page-transition.exit {
+  transform: translateX(100vw); /* Slide out to the right */
+}
+
+.nav-link.active {
+  /* color: #007bff !important; */
+  font-weight: bold;
+  /* border-bottom: 2px solid #007bff; */
+  /* background: rgba(0,123,255,0.05); */
+}
+
