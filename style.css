@@ -16,6 +16,11 @@
     font-size: 0.9em;
 }
 
+.font-medium-colored {
+    font-size: 0.9em;
+    color: #595959;
+}
+
 html {
   scroll-behavior: smooth;
 }
