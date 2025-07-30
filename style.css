@@ -16,6 +16,11 @@
     font-size: 0.9em;
 }
 
+.font-title{
+    /* font-size: 1.1em; */
+    font-size:large;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -43,6 +48,7 @@ html {
 
 .my-name {
     color: #39c;
+    /* color: #cd4300; */ /* inspired from https://www.mosharaf.com/ */
 }
 
 .my-name:hover {
@@ -120,4 +126,22 @@ html {
   border: 0;
 }
 
+.doc-embed-container {
+  width: 100%;
+  min-height: 5000vh;
+  height: 5000vh;
+  margin: 2rem 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-embed-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  border: none;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
 
