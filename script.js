@@ -134,3 +134,19 @@ document.addEventListener("DOMContentLoaded", function () {
     activateNav(); // Initial highlight
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const pubImages = document.querySelectorAll('.pub-fade-img');
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  pubImages.forEach(img => observer.observe(img));
+});
