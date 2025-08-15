@@ -145,3 +145,31 @@ html {
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 
+.phd-banner {
+  width: 100%;
+  background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  /* border-radius: 18px 18px 18px 18px; */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 1s cubic-bezier(.77,0,.175,1);
+}
+
+.phd-banner span {
+  display: inline-block;
+  background: rgba(0,0,0,0.10);
+  padding: 0.2em 1.2em;
+  border-radius: 1em;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
