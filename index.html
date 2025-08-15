@@ -101,10 +101,10 @@
           <p class="text-justify font-essentials">
             My primary research interest is in developing AI-driven solutions for health and biomedical informatics. 
           </p><p class="text-justify font-essentials">
-            I'm particularly interested in applying advanced machine learning and deep learning algorithms to extract meaningful insights from complex medical and spatiotemporal data, ranging from the molecular and clinical levels (e.g., genomics, medical imaging) to the physiological and social levels (e.g., wearable sensors, population health).
+            I'm particularly interested in applying advanced machine learning and deep learning algorithms to extract meaningful insights from complex medical and spatiotemporal data, ranging from the molecular and clinical levels (e.g., genomics, ophthalmic imaging, medical imaging) to the physiological and social levels (e.g., wearable sensors, population health).
           </p>
           <p class="text-justify font-essentials">
-            I'm also interested in a wide range of machine learning applications in healthcare, including Ophthalmic imaging, predictive analytics (assessing patient risk and forecasting hospital readmissions), wearable sensor data analysis (monitoring heart rate, physical activity, or blood glucose), drug discovery, remote patient monitoring, and disease diagnosis from signals, text, or images. 
+            I'm also interested in a wide range of machine learning applications in healthcare, including predictive analytics (assessing patient risk and forecasting hospital readmissions), wearable sensor data analysis (monitoring heart rate, physical activity, or blood glucose), drug discovery, remote patient monitoring, and disease diagnosis from signals, text, or images. 
           </p>
           <p class="text-justify font-essentials">
             My goal is to advance disease diagnosis, early detection, and personalized healthcare by focusing on augmenting clinical decision making, aimed at supporting, rather than replacing, clinicians by providing them with accurate, explainable, and timely insights. This approach ensures that AI acts as a trusted partner in the diagnostic process, helping clinicians make more informed decisions, reduce diagnostic errors, and deliver more tailored treatments to patients.
@@ -128,7 +128,7 @@
             
             <div class="text-justify" style="border-left: 1px solid #d8d8d8; padding-left: 1rem;">
               <p>
-                DiabSense is a novel system for the early staging of type 2 diabetes (NIDDM). We developed this system to address the global challenge of undiagnosed diabetes by combining Human Activity Recognition (HAR) and Diabetic Retinopathy (DR) grading into a unified framework using advanced Graph Neural Networks (GNN). We aimed at augmenting, rather than replacing, clinicians during clinical decision making since clinicians are involded in the sytem during decision making. DiabSense reduces the need for expensive routine medical checkups and reliance on symptoms until the system alerts for an 'early diagnosis positive'. Since NIDDM symptoms are often absent in the early stages, undiagnosed patients gain an opportunity to begin medical treatment as soon as DiabSense detects a risk. Comparison between DiabSense outcomes and clinical A1C tests confirmed its reliability for accurate early diagnosis assessments.
+                DiabSense is a novel system for the early staging of type 2 diabetes (NIDDM). We developed this system to address the global challenge of undiagnosed diabetes by combining Human Activity Recognition (HAR) and Diabetic Retinopathy (DR) grading into a unified framework using advanced Graph Neural Networks (GNN) - Vision GNN (ViG) and Graph Attention Network (GAT). We aimed at augmenting, rather than replacing, clinicians during clinical decision making since clinicians are involded in the sytem during decision making. DiabSense reduces the need for expensive routine medical checkups and reliance on symptoms until the system alerts for an 'early diagnosis positive'. Since NIDDM symptoms are often absent in the early stages, undiagnosed patients gain an opportunity to begin medical treatment as soon as DiabSense detects a risk. Comparison between DiabSense outcomes and clinical A1C tests confirmed its reliability for accurate early diagnosis assessments.
               </p>
               <figure>
                 <img src="assets/Fig2_revised.png" class="img-fluid" alt="Me">
@@ -137,6 +137,25 @@
               <p>
                  Refer to the ‘<a href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-024-00959-w#Sec6" class="text-decoration-none my-name">Architecture description</a>’ section of the paper for a quick overview of the system’s architecture.
               </p>
+
+              <p>
+                One interesting fact about ViG is that the model considers each pixel of a 2D image as a node, enabling richer structural representation. This motivated us to use that model since it can overcome the shortcomings of conventional CNNs, which treat images as grid-like structures, ultimately struggle with complex object classification in images.
+              </p>
+
+              <figure>
+                <img src="assets/Fig10.png" class="img-fluid" alt="Me">
+                <figcaption class="text-center mt-3"><strong>Figure 1.2</strong>: Graph Convolutional Network architecture (ViG) for DR grading.</figcaption>
+              </figure>
+
+              <p>
+                While LSTM, CNN, and DBN face challenges in sequential and resource-constrained settings, GAT addresses these with efficient attention mechanisms that capture varying node importance and neighborhood sizes without full graph knowledge. Our use of GAT to model internal connections in time-series tri-axial smartphone sensor data is novel compared to RNNs or transformers, offering computational efficiency and eliminating costly matrix operations.
+              </p>
+
+              <figure>
+                <img src="assets/Fig12.png" class="img-fluid" alt="Me">
+                <figcaption class="text-center mt-3"><strong>Figure 1.3</strong>: Graph Attention Network (GAT) architecture for Human Activity Recognation.</figcaption>
+              </figure>
+              
               <p>
                 My main contributions span the full research cycle: from conceptualizing the system and  identifying gaps to designing the methodology, preparing and curating data, implementing and evaluating experiments, visualizing results, drafting the manuscript, and leading major revisions to improve the final version.
             </div>
