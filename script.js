@@ -150,3 +150,146 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   pubImages.forEach(img => observer.observe(img));
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.author-list').forEach(function(list) {
+    const andMore = list.querySelector('.and-more');
+    const hidden = list.querySelector('.hidden-authors');
+    if (!andMore || !hidden) return;
+
+    andMore.addEventListener('click', function () {
+      andMore.style.display = 'none';
+      hidden.style.display = 'inline';
+      // Animate reveal
+      const text = hidden.textContent;
+      hidden.textContent = '';
+      let i = 0;
+      function reveal() {
+        if (i <= text.length) {
+          hidden.textContent = text.slice(0, i);
+          i++;
+          setTimeout(reveal, 35); // adjust speed here
+        }
+      }
+      reveal();
+    });
+    // Optional: allow keyboard access
+    andMore.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        andMore.click();
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById('toggle-diabsense');
+  const details = document.getElementById('about-this-work');
+  let expanded = false;
+
+  btn.addEventListener('click', function () {
+    expanded = !expanded;
+    if (expanded) {
+      details.style.maxHeight = details.scrollHeight + "px";
+      btn.textContent = "hide details";
+      btn.setAttribute('aria-expanded', 'true');
+    } else {
+      details.style.maxHeight = "0";
+      btn.textContent = "show details";
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btnSwav = document.getElementById('toggle-swav');
+  const detailsSwav = document.getElementById('about-swav-work');
+  let expandedSwav = false;
+
+  btnSwav.addEventListener('click', function () {
+    expandedSwav = !expandedSwav;
+    if (expandedSwav) {
+      detailsSwav.style.maxHeight = detailsSwav.scrollHeight + "px";
+      btnSwav.textContent = "hide details";
+      btnSwav.setAttribute('aria-expanded', 'true');
+    } else {
+      detailsSwav.style.maxHeight = "0";
+      btnSwav.textContent = "show details";
+      btnSwav.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btnCnn3d = document.getElementById('toggle-cnn3d');
+  const detailsCnn3d = document.getElementById('about-cnn3d-work');
+  let expandedCnn3d = false;
+
+  btnCnn3d.addEventListener('click', function () {
+    expandedCnn3d = !expandedCnn3d;
+    if (expandedCnn3d) {
+      detailsCnn3d.style.maxHeight = detailsCnn3d.scrollHeight + "px";
+      btnCnn3d.textContent = "hide details";
+      btnCnn3d.setAttribute('aria-expanded', 'true');
+    } else {
+      detailsCnn3d.style.maxHeight = "0";
+      btnCnn3d.textContent = "show details";
+      btnCnn3d.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const pubSection = document.getElementById('publications');
+  const pubBtns = [
+    document.getElementById('toggle-diabsense'),
+    document.getElementById('toggle-swav'),
+    document.getElementById('toggle-cnn3d')
+  ];
+
+  if (pubSection && pubBtns.every(Boolean)) {
+    const animateBtns = () => {
+      pubBtns.forEach((btn, i) => {
+        btn.classList.remove('pub-btn-appear');
+        // Force reflow to restart animation
+        void btn.offsetWidth;
+        btn.style.opacity = '0';
+        btn.style.transform = 'translateX(-40px)';
+        setTimeout(() => {
+          btn.classList.add('pub-btn-appear');
+        }, 100 + i * 120);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateBtns();
+            obs.disconnect(); // Only trigger once
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(pubSection);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Publication thumbnail popup
+  document.querySelectorAll('.pub-thumb-box').forEach(box => {
+    box.addEventListener('click', function () {
+      const img = box.querySelector('img');
+      const modalImg = document.getElementById('pubModalImg');
+      const modalCaption = document.getElementById('pubModalCaption');
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modalCaption.textContent = img.getAttribute('data-caption') || img.alt || '';
+      // Show Bootstrap modal
+      const modal = new bootstrap.Modal(document.getElementById('pubImgModal'));
+      modal.show();
+    });
+  });
+});
+
