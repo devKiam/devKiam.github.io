@@ -293,3 +293,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const navbarName = document.getElementById('navbar-name');
+  const mainName = document.getElementById('main-name');
+
+  function checkNameVisibility() {
+    const rect = mainName.getBoundingClientRect();
+    if (rect.bottom < 60) { // 60px for navbar height
+      navbarName.style.opacity = 1;
+    } else {
+      navbarName.style.opacity = 0;
+    }
+  }
+
+  window.addEventListener('scroll', checkNameVisibility);
+  checkNameVisibility();
+});
+

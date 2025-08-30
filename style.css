@@ -1,19 +1,52 @@
-@import url('./Fonts/WEB/css/satoshi.css');
+/* @import url('./Fonts/WEB/css/satoshi.css');
 /* @font-face {
     font-family: 'Satoshi-Light', 'Satoshi-LightItalic, Satoshi-Regular', 'Satoshi-Italic', 'Satoshi-Medium', 'Satoshi-MediumItalic', 'Satoshi-Bold', 'Satoshi-BoldItalic', 'Satoshi-Black', 'Satoshi-BlackItalic', 'Satoshi-Variable', 'Satoshi-VariableItalic';
 } */
 
+/* Regular */
+@font-face {
+  font-family: 'Custom';
+  src: url('./Fonts/WEB/fonts/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: 'Custom';
+  src: url('./Fonts/EBGaramond/EBGaramond-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'Custom';
+  src: url('./Fonts/WEB/fonts/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+  font-family: 'Custom';
+  src: url('./Fonts/WEB/fonts/Satoshi-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
 * {
-    font-family: 'Satoshi-Regular', sans-serif;
+    font-family: 'Custom', serif;
 }
 
 .font-essentials {
-    font-size:large;
+    font-size:medium;
     color: #595959;
 }
 
 .font-medium {
-    font-size: 0.9em;
+    font-size: 1em;
+    color: #b0b0b0;
 }
 
 .font-title{
@@ -21,7 +54,9 @@
     font-size:large;
 }
 
-html {
+body, html {
+  background: #181a1b;
+  color: #e0e0e0;
   scroll-behavior: smooth;
 }
 
@@ -59,6 +94,7 @@ html {
 .my-name-strong {
     /* font-weight: 700; */
     color: #595959;
+    font-size: 2.2rem !important;
 }
 
 
@@ -285,16 +321,13 @@ html {
 }
 
 /* Dark mode base styles */
-body, html {
-  background: #181a1b !important;
-  color: #e0e0e0 !important;
-}
+
 
 .container-sm,
 .row,
 .col-md-4,
 .col-md-8 {
-  background: transparent !important;
+  background: transparent;
 }
 
 .navbar,
@@ -317,23 +350,19 @@ body, html {
 }
 
 h1, h2, h3, h4, h5, h6, .font-title, .my-name-strong {
-  color: #fff !important;
+  color: #fff;
 }
 
 .font-essentials {
-  color: #b0b0b0 !important;
-}
-
-.font-medium {
-  color: #b0b0b0 !important;
+  color: #b0b0b0;
 }
 
 .text-justify {
-  color: #e0e0e0 !important;
+  color: #e0e0e0;
 }
 
 a, .my-name {
-  color: #39c !important;
+  color: #39c;
 }
 
 a:hover, .my-name:hover {
@@ -388,4 +417,104 @@ input, textarea, select, button {
   .sticky-col {
     background: transparent !important;
   }
+}
+
+.responsive-padding {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+@media (max-width: 992px) {
+  .responsive-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .responsive-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .responsive-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.about-bg {
+  position: relative;
+  overflow: hidden;
+  /* Remove background-image from here */
+}
+
+.about-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/ac320603453222098e734c26e3f534b26c66aaaa07cac6ab8d03d2c22f95d6a8.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4; /* Adjust this value for desired opacity */
+  z-index: 0;
+  pointer-events: none;
+  padding: 2rem;
+}
+
+.about-bg > * {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.custom-toggler {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0.25rem 0.5rem;
+}
+.custom-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: none;
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+  position: relative;
+}
+.custom-toggler .navbar-toggler-icon::before,
+.custom-toggler .navbar-toggler-icon::after,
+.custom-toggler .navbar-toggler-icon span {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  margin: 0.3em 0;
+}
+.custom-toggler .navbar-toggler-icon span {
+  margin: 0.3em 0;
+}
+.custom-toggler .navbar-toggler-icon {
+  position: relative;
+}
+.custom-toggler .navbar-toggler-icon::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.custom-toggler .navbar-toggler-icon::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.custom-toggler .navbar-toggler-icon span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }

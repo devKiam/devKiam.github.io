@@ -8,18 +8,24 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
   <!-- navigation bar -->
   <nav class="navbar sticky-top navbar-expand-lg bg-body my-navbar">
-    <div class="container-sm">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <div class="container-sm d-flex flex-row align-items-center">
+      <button class="navbar-toggler custom-toggler me-2 order-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">
+          <span></span>
+        </span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <span id="navbar-name" class="navbar-brand order-1" style="font-size: 1.3rem; color: rgb(197,197,197); opacity: 0; transition: opacity 0.4s;">
+        Md Nuho Ul Alam
+      </span>
+      <div class="collapse navbar-collapse justify-content-end order-2" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0 px-4">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="index.html#about">about</a>
@@ -47,76 +53,71 @@
 
   <div class="container-sm">
     <div class="row">
-      <div class="col-md-4 sticky-col px-5">
-        <h2 class="py-3">
-          <span class="text-decoration-none my-name-strong fit-my-name">Md Nuho Ul Alam</span>
-        </h2>
-        <!-- <img src="assets/IMG_2721.JPG" class="img-fluid" alt="Me"> -->
-        <img src="assets/IMG_2721.JPG" class="img-fluid w-75" alt="Me">
+      <div class="col-md-12 responsive-padding" id="about" style="padding-top: 2rem;">
+        <div class="row mb-5 about-bg">
+          <div class="col-md-8" style="padding-top: 2rem;">
+            <span id="main-name" class="text-decoration-none my-name-strong fit-my-name">Md Nuho Ul Alam</span>
+            <div class="d-flex flex-column mb-4">
+              <div class="d-flex flex-row">
+                <p class="font-essentials mb-0 fit-text">
+                  Email: <a href="mailto:mdnuhoulalam@gmail.com" class="text-decoration-none font-essentials">mdnuhoulalam
+                    [at]
+                    gmail [dot] com</a>
+                </p>
+              </div>
 
-        <div class="d-flex flex-column">
-          <div class="d-flex flex-row">
-            <p class="font-essentials mt-3 mb-0 fit-text">
-              <a href="https://scholar.google.com/citations?hl=en&user=EBcFeGUAAAAJ&view_op=list_works"
-                class="text-decoration-none my-name">Google Scholar</a> |
-              <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BNH6aVMNlR3%2B4hiqWSvps6Q%3D%3D"
-                class="text-decoration-none my-name">LinkedIn</a> |
-              <a href="https://github.com/devkiam" class="text-decoration-none my-name">Github</a>
-            </p>
+              <div class="d-flex flex-row mt-2">
+                <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BNH6aVMNlR3%2B4hiqWSvps6Q%3D%3D"
+                  target="_blank" rel="noopener" class="icon-link">
+                  <span class="icon-wrapper"
+                    style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
+                    <img src="icons/icons8-linkedin.svg" alt="Google Scholar" class="icon-img"
+                      style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
+                  </span>
+                </a>
+
+                <a href="https://scholar.google.com/citations?hl=en&user=EBcFeGUAAAAJ&view_op=list_works"
+                  target="_blank" rel="noopener" class="icon-link">
+                  <span class="icon-wrapper"
+                    style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
+                    <img src="icons/icons8-google-scholar.svg" alt="Google Scholar" class="icon-img"
+                      style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
+                  </span>
+                </a>
+
+                <a href="https://www.researchgate.net/profile/Md-Nuho-Ul-Alam" target="_blank" rel="noopener"
+                  class="icon-link">
+                  <span class="icon-wrapper"
+                    style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
+                    <img src="icons/researchgate-brands-solid.svg" alt="Google Scholar" class="icon-img"
+                      style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
-
-          <div class="d-flex flex-row">
-            <p class="font-essentials mb-0 fit-text">
-              Email: <a href="mailto:mdnuhoulalam@gmail.com" class="text-decoration-none my-name">mdnuhoulalam [at]
-                gmail [dot] com</a>
-            </p>
-          </div>
-
-          <div class="d-flex flex-row">
-            <a href="assets/Transcript - Md Nuho Ul Alam.pdf"
-              class="text-decoration-none my-name font-essentials mb-0 fit-text">
-              &#128196; Transcript
-            </a>
+          <div class="col-md-4 ">
+            <img src="assets/IMG_2721.JPG" class="img-fluid" style="border-radius: 50%;" alt="Me">
           </div>
         </div>
-      </div>
-
-      <div class="col-md-8 px-5" id="about" style="padding-top: 4rem;">
         <!-- <div class="phd-banner">
           <span>Open to Ph.D. Opportunities</span>
         </div> -->
         <p class="text-justify font-essentials">
-          Hello! I'm Nuho. I earned my undergraduate degree in Computer Science and Engineering from the International
-          Islamic University Chittagong in December 2023. During then, I co-developed <a
+          Hello! I'm Nuho. I earned my undergraduate degree in Computer Science and Engineering at the International
+          Islamic University Chittagong in December 2023. During this time, I co-developed <a
             href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-024-00959-w"
-            class="text-decoration-none my-name"><strong>DiabSense</strong></a>, a novel system for the early diagnosis
-          of type 2 diabetes using Graph Neural Networks, under the supervision of <strong><a
-              href="https://seu.edu.bd/employee/profile/MDAzNDQz" class="text-decoration-none my-name">Prof. Abdul Kadar
-              Muhammad Masum</a></strong>. This research led to my first peer-reviewed publication &mdash; published in
-          the <a href="https://journalofbigdata.springeropen.com/" class="text-decoration-none my-name"><strong>Journal
-              of Big Data</strong></a> <strong>(Q1, Impact Factor: 6.4)</strong>.
+            class="text-decoration-none my-name">DiabSense</a>, a novel smartphone-based system for early diagnosis
+          of type 2 diabetes using Graph Neural Networks. This research led to my first peer-reviewed publication &mdash; <a href="https://journalofbigdata.springeropen.com/" class="text-decoration-none my-name"><i>Journal
+            of Big Data</i></a> <i>(Q1, Impact Factor: 6.4)</i>.
         </p>
         <p class="text-justify font-essentials">
-          Building on this foundation, I continued to explore the intersection of Machine Learning and real-world
-          applications through
-          data-driven research in collaboration with <strong><a
-              href="https://sites.google.com/site/webpagezia/home?authuser=0" class="text-decoration-none my-name">Md.
-              Zia Uddin</a></strong> and Prof. Abdul Kadar Muhammad Masum. In addition, I have been working as a
-          research assistant for over 1.5 years.
+           I further explored the intersection of Machine Learning and real-world applications by working on <a
+            href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1445565/full"
+            class="text-decoration-none my-name">contrastive clustering-based diabetic retinopathy grading</a> to introduce new perspectives with reducing ophthalmologists' bias, and <a href="https://ieeexplore.ieee.org/abstract/document/10781395" class="text-decoration-none my-name">high-fidelity reconstruction of 3D temperature fields</a> by proposing attention-augmented CNN autoencoder. In addition, I have been working as a research assistant for over 1.5 years.
         </p>
-        <!-- <p class="text-justify font-essentials">
-          Building on this foundation, I continued to explore the intersection of AI and Health Informatics through
-          data-driven research in collaboration with <strong><a
-              href="https://sites.google.com/site/webpagezia/home?authuser=0" class="text-decoration-none my-name">Md.
-              Zia Uddin</a></strong> and <strong><a
-              href="https://scholar.google.com/citations?hl=en&user=cHXeV-oAAAAJ&view_op=list_works&sortby=pubdate"
-              class="text-decoration-none my-name">Prof. Abdul Kadar Muhammad Masum</a></strong> to advance innovative
-          approaches in this field. Besides, I've contributed to a research project on high-fidelity 3D spatiotemporal
-          data reconstruction in order to gain experience in solving complex modeling problems that span healthcare,
-          industrial, and environmental applications.
-        </p> -->
         <p class="text-justify font-essentials">
-          Feel free to explore my <a href="index.html#publications"
+          My goal is to apply and advance machine learning/deep learning techniques to address real-world challenges. <br>Feel free to explore my <a href="index.html#publications"
             class="text-decoration-none my-name">publications</a>.
         </p>
 
@@ -129,11 +130,11 @@
             <span class="text-decoration-none font-title font-essentials"><strong>Bachelor of Computer Science and
                 Engineering</strong></span>
             <br>
-            GPA: 3.96 out of 4.00 (ranked 1st in class)
+            GPA: 3.96/4.00 &mdash; ranked 1st in class
             <br>
             <!-- International Islamic University Chittagong 
               <br>  -->
-            <span class="font-medium">International Islamic University Chittagong <br> Sep 2018 - Dec 2023</span>
+            <span class="font-medium"><i>International Islamic University Chittagong</i><br> Sep 2018 - Dec 2023</span>
 
           <div class="text-justify" style="border-left: 1px solid #d8d8d8; padding-left: 1rem;">
             <p>
@@ -142,8 +143,7 @@
                 mellitus using smartphone-based human activity recognition and diabetic retinopathy analysis with Graph
                 Neural Network</a>
               <br>
-              Advisor: <a href="https://seu.edu.bd/employee/profile/MDAzNDQz#intro" class="text-decoration-none"
-                style="color: #595959;">Dr. Abdul Kadar Muhammad Masum</a>
+              Advisor: <a href="https://seu.edu.bd/employee/profile/MDAzNDQz#intro" class="text-decoration-none">Dr. Abdul Kadar Muhammad Masum</a>
             </p>
           </div>
           </p>
@@ -151,7 +151,7 @@
 
         <div id="research_interest">
           <h2>
-            Research Interest
+            Research Interests
           </h2>
           <ul>
             <li>Machine Learning</li>
@@ -191,7 +191,7 @@
 
         <div id="publications">
           <h2>
-            Publications <small class="text-muted"><i>(peer-reviewed journals)</i></small>
+            Publications <small>(peer-reviewed journals)</small>
           </h2>
           <p>
             1. <a href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-024-00959-w"
@@ -201,10 +201,10 @@
             <br>
             <i>Journal of Big Data, 11 (1), 103, 2024</i>
             <br>
-            <span class="font-medium">Q1, Impact Factor (publication year): 8.6</span>
+            <span class="font-medium">Q1, Impact Factor: 6.4</span>
             <br>
             <span class="author-list">
-              <span><strong>Md Nuho Ul Alam</strong></span>,
+              <span style="text-decoration: underline; text-underline-offset: 5px; text-decoration-style: dotted;"><strong>Md Nuho Ul Alam</strong></span>,
               <span>Ibrahim Hasnine</span>,
               <span>Erfanul Hoque Bahadur</span>,
               <span class="and-more" tabindex="0">and 6 more authors</span>
@@ -301,7 +301,8 @@
             <span class="font-medium">Q2, Impact Factor: 3.0</span>
             <br>
             <span class="author-list">
-              <span><strong>Md Nuho Ul Alam</strong></span>,
+              <span style="text-decoration: underline; text-underline-offset: 5px; text-decoration-style: dotted;"><strong>Md Nuho Ul Alam</strong></span>,
+              <span>Ibrahim Hasnine</span>,
               <span>Erfanul Hoque Bahadur</span>,
               <span>Abdul Kadar Muhammad Masum</span>,
               <span class="and-more" tabindex="0">and 2 more authors</span>
@@ -365,7 +366,8 @@
               <span>Md Fokrul Islam Khan</span>,
               <span>Zakir Hossain</span>,
               <span>Arif Hossen</span>,
-              <span><strong>Md Nuho Ul Alam</strong></span>,
+              <span style="text-decoration: underline; text-underline-offset: 5px; text-decoration-style: dotted;"><strong>Md Nuho Ul Alam</strong></span>,
+              <span>Ibrahim Hasnine</span>,
               <span class="and-more" tabindex="0">and 2 more authors</span>
               <span class="hidden-authors" style="display:none;">Abdul Kadar Muhammad Masum, and Md Zia Uddin.</span>
             </span>
@@ -439,117 +441,105 @@ and (d) z-axis for case:0 3D image.">
           </h2>
           <p>
           <h5 class="mb-3">Frameworks/Libraries/Tools:</h5>
-          
+
           <span class="icon-wrapper"
             style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/PyTorch.svg" alt="PyTorch" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">PyTorch</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/TensorFlow.svg" alt="TensorFlow" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">TensorFlow</span>
-          </span>
-          
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/Matplotlib.svg" alt="Matplotlib" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">Matplotlib</span>
+
+            <img src="icons/PyTorch.svg" alt="PyTorch" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">PyTorch</span>
           </span>
           <span class="icon-wrapper"
             style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/Ploty.svg" alt="Seaborn" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">Plotly</span>
+
+            <img src="icons/TensorFlow.svg" alt="TensorFlow" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">TensorFlow</span>
+          </span>
+
+          <span class="icon-wrapper"
+            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+            <img src="icons/Matplotlib.svg" alt="Matplotlib" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Matplotlib</span>
           </span>
           <span class="icon-wrapper"
             style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/NumPy.svg" alt="NumPy" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">NumPy</span>
+
+            <img src="icons/Ploty.svg" alt="Seaborn" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Plotly</span>
           </span>
           <span class="icon-wrapper"
             style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/Pandas.svg" alt="Pandas" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">Pandas</span>
+
+            <img src="icons/NumPy.svg" alt="NumPy" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">NumPy</span>
           </span>
           <span class="icon-wrapper"
             style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/LaTeX.svg" alt="Jupyter" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">LaTeX</span>
-          </span>
-          
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/Git.svg" alt="Jupyter" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">Git</span>
-          </span>
-          
-           <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/HTML5.svg" alt="Jupyter" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">HTML</span>
-          </span>
-           <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/Bootstrap.svg" alt="Jupyter" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">Bootstrap</span>
+
+            <img src="icons/Pandas.svg" alt="Pandas" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Pandas</span>
           </span>
           <span class="icon-wrapper"
             style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/MySQL.svg" alt="Jupyter" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">MySQL</span>
+
+            <img src="icons/LaTeX.svg" alt="Jupyter" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">LaTeX</span>
+          </span>
+
+          <span class="icon-wrapper"
+            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+            <img src="icons/Git.svg" alt="Jupyter" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Git</span>
+          </span>
+
+          <span class="icon-wrapper"
+            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+            <img src="icons/HTML5.svg" alt="Jupyter" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">HTML</span>
           </span>
           <span class="icon-wrapper"
             style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-            
-              <img src="icons/Jupyter.svg" alt="Jupyter" class="icon-img"
-                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-            
-            <span class="icon-caption"
-              style="display: block; font-size: 0.9em; margin-top: 2px;">Jupyter</span>
+
+            <img src="icons/Bootstrap.svg" alt="Jupyter" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Bootstrap</span>
+          </span>
+          <span class="icon-wrapper"
+            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+            <img src="icons/MySQL.svg" alt="Jupyter" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">MySQL</span>
+          </span>
+          <span class="icon-wrapper"
+            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+            <img src="icons/Jupyter.svg" alt="Jupyter" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Jupyter</span>
           </span>
 
           <style>
@@ -561,26 +551,24 @@ and (d) z-axis for case:0 3D image.">
           </style>
           </p>
           <p>
-            <h5 class="mb-3">Programming Languages:</h5>
-            <span class="icon-wrapper"
-              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-              
-                <img src="icons/Python.svg" alt="PyTorch" class="icon-img"
-                  style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-              
-              <span class="icon-caption"
-                style="display: block; font-size: 0.9em; margin-top: 2px;">Python</span>
-            </span>
-            <span class="icon-wrapper"
-              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-              
-                <img src="icons/C++ (CPlusPlus).svg" alt="PyTorch" class="icon-img"
-                  style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-              
-              <span class="icon-caption"
-                style="display: block; font-size: 0.9em; margin-top: 2px;">C++</span>
-            </span>
-            <!-- <span class="icon-wrapper"
+          <h5 class="mb-3">Programming Languages:</h5>
+          <span class="icon-wrapper"
+            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+            <img src="icons/Python.svg" alt="PyTorch" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Python</span>
+          </span>
+          <span class="icon-wrapper"
+            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+            <img src="icons/C++ (CPlusPlus).svg" alt="PyTorch" class="icon-img"
+              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">C++</span>
+          </span>
+          <!-- <span class="icon-wrapper"
               style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
               
                 <img src="icons/Java.svg" alt="PyTorch" class="icon-img"
@@ -599,13 +587,13 @@ and (d) z-axis for case:0 3D image.">
                 style="display: block; font-size: 0.9em; margin-top: 2px;">Swift</span>
             </span> -->
 
-            <style>
-              .icon-link:hover .icon-img,
-              .icon-wrapper:hover .icon-img {
-                transform: scale(1.15) rotate(-8deg);
-                filter: drop-shadow(0 0 6px rgb(107, 107, 107));
-              }
-            </style>
+          <style>
+            .icon-link:hover .icon-img,
+            .icon-wrapper:hover .icon-img {
+              transform: scale(1.15) rotate(-8deg);
+              filter: drop-shadow(0 0 6px rgb(107, 107, 107));
+            }
+          </style>
           </p>
         </div>
 
