@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Md Nuho Ul Alam</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+
+<body class="d-flex flex-column min-vh-100">
+  <!-- navigation bar -->
+  <nav class="navbar sticky-top navbar-expand-lg bg-body my-navbar">
+    <div class="container-sm d-flex flex-row align-items-center">
+      <button class="navbar-toggler custom-toggler me-2 order-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+          <span></span>
+        </span>
+      </button>
+      <span style="font-size: 1.3rem; color: rgb(197,197,197);">
+        Md Nuho Ul Alam
+      </span>
+      <div class="collapse navbar-collapse justify-content-end order-2" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 px-4">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="education.html">education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="research.html">research</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="publications.html">publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="honors.html">honors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blogs.html">blogs</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- navigation bar -->
+  <main>
+    <div class="container-sm">
+      <div class="row">
+        <div class="col-md-12 responsive-padding" id="about" style="padding-top: 2rem;">
+          <div class="row mb-5" style="text-align: center;">
+            <!-- <span id="main-name" class="" style="font-family: 'EBGaramond', serif; font-size: 3.5em;">Research</span> -->
+            <div class="content">
+              <h1 class="title">Research
+                <div class="aurora">
+                  <div class="aurora__item"></div>
+                  <div class="aurora__item"></div>
+                  <div class="aurora__item"></div>
+                  <div class="aurora__item"></div>
+                </div>
+              </h1>
+            </div>
+          </div>
+
+          <div id="research-interests">
+            <p class="text-justify font-essentials">
+              My research interests include, but are not limited to: Machine Learning, Deep Learning, Computer Vision,
+              Medical Imaging, Graph Neural Network, AI in Healthcare, Biomedical Informatics, Human Computer
+              Interaction,
+              and Ubiquitous Computing.
+            </p>
+
+
+            <!-- <p class="text-justify font-essentials">
+            My primary research interest is in developing AI-driven solutions for health and biomedical informatics.
+          </p>
+          <p class="text-justify font-essentials">
+            I'm particularly interested in applying advanced machine learning and deep learning algorithms to extract
+            meaningful insights from complex medical and spatiotemporal data, ranging from the molecular and clinical
+            levels (e.g., genomics, ophthalmic imaging, medical imaging) to the physiological and social levels (e.g.,
+            wearable sensors, population health).
+          </p>
+          <p class="text-justify font-essentials">
+            I'm also interested in a wide range of machine learning applications in healthcare, including predictive
+            analytics (assessing patient risk and forecasting hospital readmissions), wearable sensor data analysis
+            (monitoring heart rate, physical activity, or blood glucose), drug discovery, remote patient monitoring, and
+            disease diagnosis from signals, text, or images.
+          </p>
+          <p class="text-justify font-essentials">
+            My goal is to advance disease diagnosis, early detection, and personalized healthcare by focusing on
+            augmenting clinical decision making, aimed at supporting, rather than replacing, clinicians by providing
+            them with accurate, explainable, and timely insights. This approach ensures that AI acts as a trusted
+            partner in the diagnostic process, helping clinicians make more informed decisions, reduce diagnostic
+            errors, and deliver more tailored treatments to patients.
+          </p> -->
+          </div>
+
+          <div id="undergraduate-thesis" class="mt-5">
+            <h2>
+              Undergraduate Thesis
+            </h2>
+            <p>
+              <span class="text-decoration-none font-title font-essentials"><strong>DiabSense: early diagnosis of
+                  non-insulin-dependent diabetes
+                  mellitus using smartphone-based human activity recognition and diabetic retinopathy analysis with
+                  Graph
+                  Neural Network</strong></span>
+              <br>
+            </p>
+            <p>
+              <i>Supervised by:</i> <a href="https://seu.edu.bd/employee/profile/MDAzNDQz#intro"
+                class="text-decoration-none">Dr. Abdul Kadar Muhammad Masum</a>
+            </p>
+
+
+            <div class="text-justify">
+              <ul class="custom-list">
+                <li>Objective: To address the global challenge of mitigating undiagnosed non-insulin-dependent diabetes
+                  mellitus (type II diabetes).</li>
+                <li>Developed, fine-tuned, and assessed a Graph Convolutional Network (Vision GNN) and a Convolutional
+                  Neural Network-based model (EfficientNet-B5) to grade the severity of Diabetic Retinopathy (DR) from
+                  fundus images.</li>
+                <li>Leveraged smartphone tri-axial accelerometer (passive sensing) data to perform Human Activity
+                  Recognition (HAR) with a Graph Attention Network (GAT).</li>
+                <li>Integrated HAR with DR grading to build a system - DiabSense, and validated the system's outcomes on
+                  four experimental subjects by performing clinical A1C tests.</li>
+                <li>My contributions: leading the entire research cycle - conceptualization, methodology design, data
+                  curation, implementation
+                  (PyTorch), visualization (Matplotlib, Plotly), manuscript preparation (LATEX), and major revisions.
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-flex gap-1 flex-wrap justify-content-center pub-fig-row">
+              <figure class="pub-thumb-box d-flex flex-column align-items-center w-100" style="max-width: 500px;">
+                <img src="assets/Fig2_revised.jpg" class="img-fluid pub-fade-img pub-thumb-img"
+                  alt="Overview of the DiabSense system architecture."
+                  data-caption="Overview of the DiabSense system architecture.">
+                <figcaption class="text-center mt-2 small w-100">
+                  <strong>Figure</strong>: Overview of the DiabSense
+                  system architecture.
+                </figcaption>
+              </figure>
+              <div class="d-flex flex-column gap-1">
+                <figure class="pub-thumb-box d-flex flex-column align-items-center" style="max-width: 500px;">
+                  <img src="assets/Fig10.jpg" class="img-fluid pub-fade-img pub-thumb-img"
+                    alt="Graph Convolutional Network (ViG) overall architecture for DR grading."
+                    data-caption="Graph Convolutional Network - Vision GNN overall architecture for DR grading.">
+                  <figcaption class="text-center mt-2 small w-100">
+                    <strong>Figure</strong>: Graph Convolutional Network
+                    - Vision GNN overall architecture for DR grading.
+                  </figcaption>
+                </figure>
+                <figure class="pub-thumb-box d-flex flex-column align-items-center" style="max-width: 500px;">
+                  <img src="assets/Fig12.jpg" class="img-fluid pub-fade-img pub-thumb-img"
+                    alt="Graph Attention Network architecture for Human Activity Recognition."
+                    data-caption="Graph Attention Network architecture for Human Activity Recognition.">
+                  <figcaption class="text-center mt-2 small w-100">
+                    <strong>Figure</strong>: Graph Attention Network
+                    architecture for Human Activity Recognition.
+                  </figcaption>
+                </figure>
+              </div>
+              <figure class="pub-thumb-box d-flex flex-column align-items-center w-100" style="max-width: 500px;">
+                <img src="assets/Fig11.png" class="img-fluid pub-fade-img pub-thumb-img" alt="Vision GNN Network layer."
+                  data-caption="Vision GNN Network layer.">
+                <figcaption class="text-center mt-2 small w-100">
+                  <strong>Figure</strong>: Vision GNN Network layer.
+                </figcaption>
+              </figure>
+              <figure class="pub-thumb-box d-flex flex-column align-items-center w-100" style="max-width: 500px;">
+                <img src="assets/Fig50.png" class="img-fluid pub-fade-img pub-thumb-img" alt="A continuous eleven hours
+                                                    sample
+                                                    of unlabelled triaxial accelerometer sensor data from experimental
+                                                    subject-1." data-caption="A continuous eleven hours
+                                                    sample
+                                                    of unlabelled triaxial accelerometer sensor data from experimental
+                                                    subject-1.">
+                <figcaption class="text-center mt-2 small w-100">
+                  <strong>Figure</strong>: A continuous eleven hours
+                  sample
+                  of unlabelled triaxial accelerometer sensor data from experimental
+                  subject-1.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="pubImgModal" tabindex="-1" aria-labelledby="pubImgModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <div class="modal-body text-center p-0">
+              <div class="pub-modal-img-wrapper">
+                <img id="pubModalImg" src="" alt="" class="img-fluid rounded" style="max-height:80vh;">
+              </div>
+              <div id="pubModalCaption" class="mt-3 text-light bg-dark bg-opacity-75 rounded p-2 small"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+      <script src="script.js"></script>
+
+      <div class="page-fade"></div>
+  </main>
+  <!-- Footer -->
+  <footer class="footer mt-auto py-3 bg-dark text-light">
+    <div class="container-sm text-center">
+      <div class="mb-1">
+        <a href="mailto:mdnuhoulalam@gmail.com" class="text-decoration-none text-light me-3">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158" target="_blank"
+          class="text-decoration-none text-light me-3">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=EBcFeGUAAAAJ" target="_blank"
+          class="text-decoration-none text-light me-3">
+          <i class="bi bi-mortarboard-fill"></i>
+        </a>
+      </div>
+      <div class="small text-secondary">
+        &copy; 2025 Md Nuho Ul Alam. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

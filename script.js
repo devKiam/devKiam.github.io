@@ -36,59 +36,29 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function slideTo(url) {
-  // Only allow slide for specific URLs
-  const allowedUrls = ['/index.html', '/blogs.html'];
-  if (!allowedUrls.includes(url)) {
-    window.location.href = url;
-    return;
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fadeDiv = document.querySelector('.page-fade');
+  if (fadeDiv) {
+    fadeDiv.classList.remove('active'); // Ensure it's hidden on load
   }
 
-  let transitionDiv = document.querySelector('.page-transition');
-  if (!transitionDiv) {
-    transitionDiv = document.createElement('div');
-    transitionDiv.className = 'page-transition';
-    document.body.appendChild(transitionDiv);
-  }
-  // Slide in
-  setTimeout(() => {
-    transitionDiv.classList.add('active');
-  }, 10);
-
-  // After slide in, slide out and navigate
-  setTimeout(() => {
-    transitionDiv.classList.add('exit');
-    setTimeout(() => {
-      window.location.href = url;
-    }, 600); // match transition duration
-  }, 600);
-}
-
-// Animate entry on page load
-window.addEventListener('DOMContentLoaded', () => {
-  let transitionDiv = document.querySelector('.page-transition');
-  if (!transitionDiv) {
-    transitionDiv = document.createElement('div');
-    transitionDiv.className = 'page-transition active';
-    document.body.appendChild(transitionDiv);
-  }
-  setTimeout(() => {
-    transitionDiv.classList.remove('active');
-    setTimeout(() => {
-      transitionDiv.remove();
-    }, 600);
-  }, 10);
-});
-
-// Intercept navigation
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const href = link.getAttribute('href');
-    // Only slide for navigation to another page
-    if (href && !href.startsWith('#')) {
-      e.preventDefault();
-      slideTo(href);
-    }
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('#') && !link.classList.contains('active')) {
+        e.preventDefault();
+        if (fadeDiv) {
+          fadeDiv.classList.add('active');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 400); // match transition duration
+        } else {
+          window.location.href = href;
+        }
+      }
+    });
   });
 });
 
@@ -310,3 +280,21 @@ document.addEventListener("DOMContentLoaded", function () {
   checkNameVisibility();
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const currentPage = window.location.pathname.split('/').pop();
+
+  navLinks.forEach(link => {
+    // Remove any existing active class
+    link.classList.remove('active');
+    link.removeAttribute('aria-current');
+
+    // Get the href's filename (ignore hash)
+    const href = link.getAttribute('href').split('#')[0];
+    if (href === currentPage) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+});

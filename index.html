@@ -9,38 +9,45 @@
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 </head>
 
 
-<body>
+<body class="d-flex flex-column min-vh-100">
   <!-- navigation bar -->
   <nav class="navbar sticky-top navbar-expand-lg bg-body my-navbar">
     <div class="container-sm d-flex flex-row align-items-center">
-      <button class="navbar-toggler custom-toggler me-2 order-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler custom-toggler me-2 order-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
           <span></span>
         </span>
       </button>
-      <span id="navbar-name" class="navbar-brand order-1" style="font-size: 1.3rem; color: rgb(197,197,197); opacity: 0; transition: opacity 0.4s;">
+      <span id="navbar-name" class="navbar-brand order-1"
+        style="font-size: 1.3rem; color: rgb(197,197,197); opacity: 0; transition: opacity 0.4s;">
         Md Nuho Ul Alam
       </span>
       <div class="collapse navbar-collapse justify-content-end order-2" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0 px-4">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html#about">about</a>
+            <a class="nav-link" href="index.html">home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html#education">education</a>
+            <a class="nav-link" href="education.html">education</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#research_interest">research interest</a>
+            <a class="nav-link" href="research.html">research</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#publications">publications</a>
+            <a class="nav-link" href="publications.html">publications</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#achievements">achievements</a>
+            <a class="nav-link" href="projects.html">projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="honors.html">honors</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="blogs.html">blogs</a>
@@ -51,624 +58,313 @@
   </nav>
   <!-- navigation bar -->
 
-  <div class="container-sm">
-    <div class="row">
-      <div class="col-md-12 responsive-padding" id="about" style="padding-top: 2rem;">
-        <div class="row mb-5 about-bg">
-          <div class="col-md-8" style="padding-top: 2rem;">
-            <span id="main-name" class="text-decoration-none my-name-strong fit-my-name">Md Nuho Ul Alam</span>
-            <div class="d-flex flex-column mb-4">
-              <div class="d-flex flex-row">
-                <p class="font-essentials mb-0 fit-text">
-                  Email: <a href="mailto:mdnuhoulalam@gmail.com" class="text-decoration-none font-essentials">mdnuhoulalam
-                    [at]
-                    gmail [dot] com</a>
-                </p>
-              </div>
+  <main>
 
-              <div class="d-flex flex-row mt-2">
-                <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BNH6aVMNlR3%2B4hiqWSvps6Q%3D%3D"
-                  target="_blank" rel="noopener" class="icon-link">
-                  <span class="icon-wrapper"
-                    style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
-                    <img src="icons/icons8-linkedin.svg" alt="Google Scholar" class="icon-img"
-                      style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
-                  </span>
-                </a>
 
-                <a href="https://scholar.google.com/citations?hl=en&user=EBcFeGUAAAAJ&view_op=list_works"
-                  target="_blank" rel="noopener" class="icon-link">
-                  <span class="icon-wrapper"
-                    style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
-                    <img src="icons/icons8-google-scholar.svg" alt="Google Scholar" class="icon-img"
-                      style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
-                  </span>
-                </a>
+    <div class="container-sm">
+      <div class="row">
+        <div class="col-md-12 responsive-padding" id="about" style="padding-top: 2rem;">
+          <div class="row mb-5 about-bg">
+            <div class="col-md-8" style="padding-top: 2rem;">
+              <span id="main-name" class="" style="font-size: 2.4em;">Md Nuho Ul Alam</span>
+              <div class="d-flex flex-column mb-4">
+                <div class="d-flex flex-row">
+                  <p class="font-essentials mb-0 fit-text">
+                    Email: <a href="mailto:mdnuhoulalam@gmail.com"
+                      class="text-decoration-none font-essentials">mdnuhoulalam
+                      [at]
+                      gmail [dot] com</a>
+                  </p>
+                </div>
 
-                <a href="https://www.researchgate.net/profile/Md-Nuho-Ul-Alam" target="_blank" rel="noopener"
-                  class="icon-link">
-                  <span class="icon-wrapper"
-                    style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
-                    <img src="icons/researchgate-brands-solid.svg" alt="Google Scholar" class="icon-img"
-                      style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
-                  </span>
-                </a>
+                <div class="d-flex flex-row mt-2">
+                  <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BNH6aVMNlR3%2B4hiqWSvps6Q%3D%3D"
+                    target="_blank" rel="noopener" class="icon-link">
+                    <span class="icon-wrapper"
+                      style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
+                      <img src="icons/icons8-linkedin.svg" alt="Google Scholar" class="icon-img"
+                        style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
+                    </span>
+                  </a>
+
+                  <a href="https://scholar.google.com/citations?hl=en&user=EBcFeGUAAAAJ&view_op=list_works"
+                    target="_blank" rel="noopener" class="icon-link">
+                    <span class="icon-wrapper"
+                      style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
+                      <img src="icons/icons8-google-scholar.svg" alt="Google Scholar" class="icon-img"
+                        style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
+                    </span>
+                  </a>
+
+                  <a href="https://www.researchgate.net/profile/Md-Nuho-Ul-Alam" target="_blank" rel="noopener"
+                    class="icon-link">
+                    <span class="icon-wrapper"
+                      style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
+                      <img src="icons/researchgate-brands-solid.svg" alt="Google Scholar" class="icon-img"
+                        style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
+            <div class="col-md-4 ">
+              <img src="assets/IMG_2721.JPG" class="img-fluid" style="border-radius: 50%;" alt="Me">
+            </div>
           </div>
-          <div class="col-md-4 ">
-            <img src="assets/IMG_2721.JPG" class="img-fluid" style="border-radius: 50%;" alt="Me">
-          </div>
-        </div>
-        <!-- <div class="phd-banner">
-          <span>Open to Ph.D. Opportunities</span>
-        </div> -->
-        <p class="text-justify font-essentials">
-          Hello! I'm Nuho. I earned my undergraduate degree in Computer Science and Engineering at the International
-          Islamic University Chittagong in December 2023. During this time, I co-developed <a
-            href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-024-00959-w"
-            class="text-decoration-none my-name">DiabSense</a>, a novel smartphone-based system for early diagnosis
-          of type 2 diabetes using Graph Neural Networks. This research led to my first peer-reviewed publication &mdash; <a href="https://journalofbigdata.springeropen.com/" class="text-decoration-none my-name"><i>Journal
-            of Big Data</i></a> <i>(Q1, Impact Factor: 6.4)</i>.
-        </p>
-        <p class="text-justify font-essentials">
-           I further explored the intersection of Machine Learning and real-world applications by working on <a
-            href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1445565/full"
-            class="text-decoration-none my-name">contrastive clustering-based diabetic retinopathy grading</a> to introduce new perspectives with reducing ophthalmologists' bias, and <a href="https://ieeexplore.ieee.org/abstract/document/10781395" class="text-decoration-none my-name">high-fidelity reconstruction of 3D temperature fields</a> by proposing attention-augmented CNN autoencoder. In addition, I have been working as a research assistant for over 1.5 years.
-        </p>
-        <p class="text-justify font-essentials">
-          My goal is to apply and advance machine learning/deep learning techniques to address real-world challenges. <br>Feel free to explore my <a href="index.html#publications"
-            class="text-decoration-none my-name">publications</a>.
-        </p>
 
-        <div id="education">
-          <h2>
-            Education
-          </h2>
-          <p>
-
-            <span class="text-decoration-none font-title font-essentials"><strong>Bachelor of Computer Science and
-                Engineering</strong></span>
-            <br>
-            GPA: 3.96/4.00 &mdash; ranked 1st in class
-            <br>
-            <!-- International Islamic University Chittagong 
-              <br>  -->
-            <span class="font-medium"><i>International Islamic University Chittagong</i><br> Sep 2018 - Dec 2023</span>
-
-          <div class="text-justify" style="border-left: 1px solid #d8d8d8; padding-left: 1rem;">
-            <p>
-              Dissertation: <a href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-024-00959-w"
-                class="text-decoration-none my-name">DiabSense: early diagnosis of non-insulin-dependent diabetes
-                mellitus using smartphone-based human activity recognition and diabetic retinopathy analysis with Graph
-                Neural Network</a>
-              <br>
-              Advisor: <a href="https://seu.edu.bd/employee/profile/MDAzNDQz#intro" class="text-decoration-none">Dr. Abdul Kadar Muhammad Masum</a>
+          <div>
+            <p class="text-justify font-essentials">
+              Hello! I'm Nuho. I earned my undergraduate degree in Computer Science and Engineering at the International
+              Islamic University Chittagong in December 2023. During this time, I co-developed <a
+                href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-024-00959-w"
+                class="text-decoration-none my-name">DiabSense</a>, a novel smartphone-based system for early diagnosis
+              of type 2 diabetes using Graph Neural Networks. This research led to my first peer-reviewed publication
+              &mdash; <a href="https://journalofbigdata.springeropen.com/"
+                class="text-decoration-none my-name"><i>Journal
+                  of Big Data</i></a> <i>(Q1, Impact Factor: 6.4)</i>.
+            </p>
+            <p class="text-justify font-essentials">
+              I further explored the intersection of Machine Learning and real-world applications by working on <a
+                href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1445565/full"
+                class="text-decoration-none my-name">contrastive clustering-based diabetic retinopathy grading</a> to
+              introduce new perspectives with reducing ophthalmologists' bias, and <a
+                href="https://ieeexplore.ieee.org/abstract/document/10781395"
+                class="text-decoration-none my-name">high-fidelity reconstruction of 3D temperature fields</a> by
+              proposing
+              attention-augmented CNN autoencoder. In addition, I have been working as a research assistant for over 1.5
+              years.
+            </p>
+            <p class="text-justify font-essentials">
+              My goal is to apply and advance machine learning/deep learning techniques to address real-world
+              challenges.
+              <br>Feel free to explore my <a href="publications.html"
+                class="text-decoration-none my-name">publications</a>.
             </p>
           </div>
-          </p>
-        </div>
-
-        <div id="research_interest">
-          <h2>
-            Research Interests
-          </h2>
-          <ul>
-            <li>Machine Learning</li>
-            <li>Deep Learning</li>
-            <li>Computer Vision</li>
-            <li>Medical Imaging</li>
-            <li>Graph Neural Network</li>
-            <li>AI in Healthcare</li>
-            <li>Biomedical Informatics</li>
-            <li>Human Computer Interaction</li>
-            <li>Ubiquitous Computing</li>
-          </ul>
-
-          <!-- <p class="text-justify font-essentials">
-            My primary research interest is in developing AI-driven solutions for health and biomedical informatics.
-          </p>
-          <p class="text-justify font-essentials">
-            I'm particularly interested in applying advanced machine learning and deep learning algorithms to extract
-            meaningful insights from complex medical and spatiotemporal data, ranging from the molecular and clinical
-            levels (e.g., genomics, ophthalmic imaging, medical imaging) to the physiological and social levels (e.g.,
-            wearable sensors, population health).
-          </p>
-          <p class="text-justify font-essentials">
-            I'm also interested in a wide range of machine learning applications in healthcare, including predictive
-            analytics (assessing patient risk and forecasting hospital readmissions), wearable sensor data analysis
-            (monitoring heart rate, physical activity, or blood glucose), drug discovery, remote patient monitoring, and
-            disease diagnosis from signals, text, or images.
-          </p>
-          <p class="text-justify font-essentials">
-            My goal is to advance disease diagnosis, early detection, and personalized healthcare by focusing on
-            augmenting clinical decision making, aimed at supporting, rather than replacing, clinicians by providing
-            them with accurate, explainable, and timely insights. This approach ensures that AI acts as a trusted
-            partner in the diagnostic process, helping clinicians make more informed decisions, reduce diagnostic
-            errors, and deliver more tailored treatments to patients.
-          </p> -->
-        </div>
-
-        <div id="publications">
-          <h2>
-            Publications <small>(peer-reviewed journals)</small>
-          </h2>
-          <p>
-            1. <a href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-024-00959-w"
-              class="text-decoration-none my-name font-title">DiabSense: early diagnosis of non-insulin-dependent
-              diabetes mellitus using smartphone-based human activity recognition and diabetic retinopathy analysis with
-              Graph Neural Network</a>
-            <br>
-            <i>Journal of Big Data, 11 (1), 103, 2024</i>
-            <br>
-            <span class="font-medium">Q1, Impact Factor: 6.4</span>
-            <br>
-            <span class="author-list">
-              <span style="text-decoration: underline; text-underline-offset: 5px; text-decoration-style: dotted;"><strong>Md Nuho Ul Alam</strong></span>,
-              <span>Ibrahim Hasnine</span>,
-              <span>Erfanul Hoque Bahadur</span>,
-              <span class="and-more" tabindex="0">and 6 more authors</span>
-              <span class="hidden-authors" style="display:none;">Abdul Kadar Muhammad Masum, Mercedes Briones Urbano, Manuel Masias Vergara, Jia Uddin, Imran Ashraf, and Md. Abdus Samad.</span>
-            </span>
-            <br>
-
-            <button id="toggle-diabsense" class="btn btn-secondary btn-sm mt-2" type="button" aria-expanded="false"
-              aria-controls="about-this-work">
-              show details
-            </button>
-
-          <div id="about-this-work"
-            style="max-height:0; overflow:hidden; transition:max-height 0.6s cubic-bezier(.77,0,.175,1);">
-            <div class="text-justify" style="border-left: 1px solid #d8d8d8; padding-left: 1rem;">
-
-              <p>
-                Non-Insulin-Dependent Diabetes Mellitus (NIDDM) is a chronic health condition caused by high blood sugar
-                levels, and if not treated early, it can lead to serious complications i.e. blindness. Human Activity
-                Recognition (HAR) offers potential for early NIDDM diagnosis, emerging as a key application for HAR
-                technology. This research introduces DiabSense, a novel smartphone-dependent system for early staging of
-                NIDDM to address the global challenge of undiagnosed diabetes. DiabSense incorporates HAR and Diabetic
-                Retinopathy (DR) grading into a unified framework using advanced Graph Neural Networks (GNNs). HAR uses
-                a comprehensive array of 23 human activities resembling Diabetes symptoms, and DR is already a prevalent
-                complication of NIDDM. Graph Attention Network (GAT) in HAR achieved 98.32% accuracy on tri-axial
-                accelerometer human activity sensor data, while Graph Convolutional Network (GCN) - Vision GNN in the
-                Aptos 2019 retinal fundus dataset scored 84.48% for DR severity grading task, surpassing other
-                state-of-the-art models. The trained GCN analyzed retinal images of four experimental human subjects for
-                DR report generation, and GAT generated their average duration of daily activities over 30 days. The
-                daily activities in non-diabetic periods of diabetic patients were measured and compared with the daily
-                activities of the experimental subjects, which helped generate risk factors. Fusing risk factors with DR
-                conditions enabled early diagnosis recommendations for the experimental subjects despite the absence of
-                any apparent symptoms. The comparison of DiabSense system outcome with clinical diagnosis reports in the
-                experimental subjects was conducted using the A1C test. The test results confirmed the accurate
-                assessment of early diagnosis requirements for experimental subjects by the system. Overall, DiabSense
-                exhibits significant potential for ensuring early NIDDM treatment, improving millions of lives
-                worldwide.
-              </p>
-
-              <div class="d-flex gap-3 flex-wrap justify-content-center pub-fig-row">
-                <figure class="pub-thumb-box d-flex flex-column align-items-center" style="width: 220px;">
-                  <img src="assets/Fig2_revised.jpg" class="img-fluid pub-fade-img pub-thumb-img"
-                    alt="Overview of the DiabSense system architecture."
-                    data-caption="Overview of the DiabSense system architecture.">
-                  <figcaption class="text-center mt-2 small w-100"><strong>Figure</strong>: Overview of the DiabSense
-                    system architecture.</figcaption>
-                </figure>
-                <figure class="pub-thumb-box d-flex flex-column align-items-center" style="width: 220px;">
-                  <img src="assets/Fig10.jpg" class="img-fluid pub-fade-img pub-thumb-img"
-                    alt="Graph Convolutional Network (ViG) overall architecture for DR grading."
-                    data-caption="Graph Convolutional Network - Vision GNN overall architecture for DR grading.">
-                  <figcaption class="text-center mt-2 small w-100"><strong>Figure</strong>: Graph Convolutional Network
-                    - Vision GNN overall architecture GNN for DR grading.</figcaption>
-                </figure>
-                <figure class="pub-thumb-box d-flex flex-column align-items-center" style="width: 220px;">
-                  <img src="assets/Fig12.jpg" class="img-fluid pub-fade-img pub-thumb-img"
-                    alt="Graph Attention Network architecture for Human Activity Recognation."
-                    data-caption="Graph Attention Network architecture for Human Activity Recognation.">
-                  <figcaption class="text-center mt-2 small w-100"><strong>Figure</strong>: Graph Attention Network
-                    architecture for Human Activity Recognation.</figcaption>
-                </figure>
-              </div>
-
-              <p>
-                Vision GNN (ViG) considers each pixel of a 2D image as a node, enabling
-                richer structural representation and addresses CNNs’ limitations with irregular lesions present in
-                fundus images.
-              </p>
-              <p>
-                GAT addresses the clallenges of Long Short-Term Memory (LSTM) and Deep Bayesian Network (DBN) based
-                models with efficient attention mechanisms that captures varying node importance and neighborhood sizes
-                without full graph knowledge.
-              </p>
-              <p>
-                We aimed at augmenting, rather than
-                replacing, clinicians during clinical decision making since clinicians are involded in the sytem during
-                decision making. DiabSense reduces the need for expensive routine medical checkups and reliance on
-                symptoms until the system alerts for an 'early diagnosis positive'. Since NIDDM symptoms are often
-                absent in the early stages, undiagnosed patients gain an opportunity to begin medical treatment as soon
-                as DiabSense detects a risk.
-              </p>
-            </div>
-          </div>
 
 
+          <div id="skills" class="mt-5">
+            <h2>
+              I Use the Following,
+            </h2>
+            <p>
+            <h5 class="mb-3">Frameworks/Libraries/Tools:</h5>
 
-          <p>
-            2. <a href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2024.1445565/full"
-              class="text-decoration-none my-name font-title">SwAV-driven diagnostics: new perspectives on grading
-              diabetic retinopathy from retinal photography</a>
-            <br>
-            <i>Frontiers in Robotics and AI, 11, 1445565, 2024</i>
-            <br>
-            <span class="font-medium">Q2, Impact Factor: 3.0</span>
-            <br>
-            <span class="author-list">
-              <span style="text-decoration: underline; text-underline-offset: 5px; text-decoration-style: dotted;"><strong>Md Nuho Ul Alam</strong></span>,
-              <span>Ibrahim Hasnine</span>,
-              <span>Erfanul Hoque Bahadur</span>,
-              <span>Abdul Kadar Muhammad Masum</span>,
-              <span class="and-more" tabindex="0">and 2 more authors</span>
-              <span class="hidden-authors" style="display:none;">Farzan M. Noori, and Md Zia Uddin.</span>
-            </span>
-            <br>
-            <!-- Add this button just above the portion you want to toggle -->
-            <button id="toggle-swav" class="btn btn-secondary btn-sm mt-2" type="button" aria-expanded="false"
-              aria-controls="about-swav-work">
-              show details
-            </button>
-
-            <!-- Wrap the target content in a container for toggling -->
-          <div id="about-swav-work"
-            style="max-height:0; overflow:hidden; transition:max-height 0.6s cubic-bezier(.77,0,.175,1);">
-            <div class="text-justify" style="border-left: 1px solid #d8d8d8; padding-left: 1rem;">
-              <p>
-                Diabetic Retinopathy (DR) is a serious eye condition that occurs due to high blood sugar levels in
-                patients with Diabetes Mellitus. If left untreated, DR can potentially result in blindness. Using
-                automated neural network-based methods to grade DR shows potential for early detection. However, the
-                uneven and non-quadrilateral forms of DR lesions provide difficulties for traditional Convolutional
-                Neural Network (CNN)-based architectures. To address this challenge and explore a novel algorithm
-                architecture, this work delves into the usage of contrasting cluster assignments in retinal fundus
-                images with the Swapping Assignments between multiple Views (SwAV) algorithm for DR grading. An ablation
-                study was made where SwAV outperformed other CNN and Transformer-based models, independently and in
-                ensemble configurations with an accuracy of 87.00% despite having fewer parameters and layers. The
-                proposed approach outperforms existing state-of-the-art models regarding classification metrics,
-                complexity, and prediction time. The findings offer great potential for medical practitioners, allowing
-                for more accurate diagnosis of DR and earlier treatments to avoid visual loss.
-              </p>
-              <div class="d-flex gap-3 flex-wrap pub-fig-row">
-                <figure class="pub-thumb-box" style="width: 250px;">
-                  <img src="assets/Fig3.jpg" class="img-fluid pub-fade-img pub-thumb-img"
-                    alt="Inconsistency among ophthalmologists in Diabetic Retinopathy grading."
-                    data-caption="Inconsistency among ophthalmologists.">
-                  <figcaption class="text-center mt-2 small"><strong>Figure</strong>: Inconsistency among
-                    ophthalmologists in Diabetic Retinopathy grading.</figcaption>
-                </figure>
-                <figure class="pub-thumb-box" style="width: 250px;">
-                  <img src="assets/Fig01.png" class="img-fluid pub-fade-img pub-thumb-img"
-                    alt="Framework for Diabetic Retinopathy severity grading with SwAV model."
-                    data-caption="Framework for Diabetic Retinopathy severity grading with SwAV model.">
-                  <figcaption class="text-center mt-2 small"><strong>Figure</strong>: Framework for Diabetic Retinopathy
-                    severity grading with SwAV model.</figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
-
-
-          <p>
-            3. <a href="https://ieeexplore.ieee.org/abstract/document/10781395"
-              class="text-decoration-none my-name font-title">High-Fidelity Reconstruction of 3D Temperature Fields
-              Using Attention-Augmented CNN Autoencoders With Optimized Latent Space</a>
-            <br>
-            <i>IEEE Access, 12, 2024</i>
-            <br>
-            <span class="font-medium">Q1, Impact Factor: 3.6</span>
-            <br>
-            <span class="author-list">
-              <span>Md Fokrul Islam Khan</span>,
-              <span>Zakir Hossain</span>,
-              <span>Arif Hossen</span>,
-              <span style="text-decoration: underline; text-underline-offset: 5px; text-decoration-style: dotted;"><strong>Md Nuho Ul Alam</strong></span>,
-              <span>Ibrahim Hasnine</span>,
-              <span class="and-more" tabindex="0">and 2 more authors</span>
-              <span class="hidden-authors" style="display:none;">Abdul Kadar Muhammad Masum, and Md Zia Uddin.</span>
-            </span>
-            <br>
-            <button id="toggle-cnn3d" class="btn btn-secondary btn-sm mt-2" type="button" aria-expanded="false"
-              aria-controls="about-cnn3d-work">
-              show details
-            </button>
-
-          <div id="about-cnn3d-work"
-            style="max-height:0; overflow:hidden; transition:max-height 0.6s cubic-bezier(.77,0,.175,1);">
-            <div class="text-justify" style="border-left: 1px solid #d8d8d8; padding-left: 1rem;">
-              <p>
-                Understanding and accurately predicting complex three-dimensional (3D) temperature
-                distributions are critical in diverse domains, including climate science and industrial
-                process optimization. This study presents a sophisticated framework employing a
-                convolutional neural network (CNN)–based autoencoder (AE) architecture augmented with
-                attention mechanisms for the efficient compression and reconstruction of 3D temperature
-                distribution datasets. The framework integrates Singular Value Decomposition (SVD) analysis to ascertain
-                the
-                optimal latent space dimensionality, thereby ensuring a judicious balance between model
-                complexity and reconstruction fidelity. Moreover, the autoencoder is trained using a
-                customized loss function designed to prioritize higher temperature values, enhancing the
-                reconstruction accuracy in critical regions—mathematically defined as regions where
-                <var>T</var> &gt; 675&nbsp;&deg;C. This ensures enhanced reconstruction accuracy in areas of
-                significant thermal importance, which are critical for the accuracy of the model. Through systematic
-                exploration of the latent space dimensionality and the relative
-                weighting of non-zero temperature data points, optimal parameters are identified that
-                maximize the coefficient of determination score. Empirical results indicate that optimal
-                performance is achieved with a latent space size of six, incorporating a relative weight
-                value of 4.5 for non-zero temperature data points and appropriate handling of
-                zero-temperature data points. After evaluating the model for both zero and non-zero temperature data,
-                the
-                R<sup>2</sup> scores improved from 95.80% to 99.27%, demonstrating a significant
-                enhancement in overall accuracy. This proposed methodology provides profound insights into
-                the intrinsic structure of the data and offers highly accurate predictions for
-                applications necessitating detailed spatial and temporal temperature analyses.
-              </p>
-
-              <div class="d-flex gap-3 flex-wrap justify-content-center pub-fig-row">
-                <figure class="pub-thumb-box d-flex flex-column align-items-center" style="width: 220px;">
-                  <img src="assets/Architecture.png" class="img-fluid pub-fade-img pub-thumb-img" alt="Overall framework of compressing 3D volumetric temperature
-distribution image data into an optimal latent space size." data-caption="Overall framework of compressing 3D volumetric temperature
-distribution image data into an optimal latent space size.">
-                  <figcaption class="text-center mt-2 small w-100"><strong>Figure</strong>: Overall framework of
-                    compressing 3D volumetric temperature
-                    distribution image data into an optimal latent space size.</figcaption>
-                </figure>
-                <figure class="pub-thumb-box d-flex flex-column align-items-center" style="width: 220px;">
-                  <img src="assets/EHB work (6).png" class="img-fluid pub-fade-img pub-thumb-img" alt="(a) Temperature distribution for case:0 3D image;
-Cross-sectional temperature distribution along the (b) x-axis, (c) y-axis,
-and (d) z-axis for case:0 3D image." data-caption="(a) Temperature distribution for case:0 3D image;
-Cross-sectional temperature distribution along the (b) x-axis, (c) y-axis,
-and (d) z-axis for case:0 3D image.">
-                  <figcaption class="text-center mt-2 small w-100"><strong>Figure</strong>: (a) Temperature distribution
-                    for case:0 3D image;
-                    Cross-sectional temperature distribution along the (b) x-axis, (c) y-axis,
-                    and (d) z-axis for case:0 3D image.</figcaption>
-                </figure>
-              </div>
-
-
-            </div>
-          </div>
-          </p>
-        </div>
-
-        <div id="skills">
-          <h2>
-            I Use the Following,
-          </h2>
-          <p>
-          <h5 class="mb-3">Frameworks/Libraries/Tools:</h5>
-
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/PyTorch.svg" alt="PyTorch" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">PyTorch</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/TensorFlow.svg" alt="TensorFlow" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">TensorFlow</span>
-          </span>
-
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/Matplotlib.svg" alt="Matplotlib" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Matplotlib</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/Ploty.svg" alt="Seaborn" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Plotly</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/NumPy.svg" alt="NumPy" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">NumPy</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/Pandas.svg" alt="Pandas" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Pandas</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/LaTeX.svg" alt="Jupyter" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">LaTeX</span>
-          </span>
-
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/Git.svg" alt="Jupyter" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Git</span>
-          </span>
-
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/HTML5.svg" alt="Jupyter" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">HTML</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/Bootstrap.svg" alt="Jupyter" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Bootstrap</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/MySQL.svg" alt="Jupyter" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">MySQL</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/Jupyter.svg" alt="Jupyter" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Jupyter</span>
-          </span>
-
-          <style>
-            .icon-link:hover .icon-img,
-            .icon-wrapper:hover .icon-img {
-              transform: scale(1.15) rotate(-8deg);
-              filter: drop-shadow(0 0 6px rgb(107, 107, 107));
-            }
-          </style>
-          </p>
-          <p>
-          <h5 class="mb-3">Programming Languages:</h5>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/Python.svg" alt="PyTorch" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Python</span>
-          </span>
-          <span class="icon-wrapper"
-            style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-
-            <img src="icons/C++ (CPlusPlus).svg" alt="PyTorch" class="icon-img"
-              style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-
-            <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">C++</span>
-          </span>
-          <!-- <span class="icon-wrapper"
+            <span class="icon-wrapper"
               style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-              
-                <img src="icons/Java.svg" alt="PyTorch" class="icon-img"
-                  style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-              
-              <span class="icon-caption"
-                style="display: block; font-size: 0.9em; margin-top: 2px;">Java</span>
+
+              <img src="icons/PyTorch.svg" alt="PyTorch" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">PyTorch</span>
             </span>
             <span class="icon-wrapper"
               style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
-              
-                <img src="icons/Swift.svg" alt="PyTorch" class="icon-img"
-                  style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
-              
-              <span class="icon-caption"
-                style="display: block; font-size: 0.9em; margin-top: 2px;">Swift</span>
-            </span> -->
 
-          <style>
-            .icon-link:hover .icon-img,
-            .icon-wrapper:hover .icon-img {
-              transform: scale(1.15) rotate(-8deg);
-              filter: drop-shadow(0 0 6px rgb(107, 107, 107));
-            }
-          </style>
-          </p>
-        </div>
+              <img src="icons/TensorFlow.svg" alt="TensorFlow" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
 
-        <div id="achievements">
-          <h2>
-            Achievements
-          </h2>
-          <p>
-            <span class="text-decoration-none font-title font-essentials"><strong>Champion</strong></span>
-            <br>
-            bdApps National Hackathon 2022 - Chittagong Regional round
-            <br>
-          </p>
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">TensorFlow</span>
+            </span>
 
-          <div class="text-justify" style="border-left: 1px solid #d8d8d8; padding-left: 1rem;">
-            <p>
-              Conceptualized and built a prototype app to help teenagers reduce screen addiction and adopt healthier
-              habits. Developed the MVP using Flutter.
-              <br>
-              Checkout the full <a
-                href="https://docs.google.com/presentation/d/e/2PACX-1vSiDta7vl3ZaM20iBxB8P6wkKqwTX9S8hmnWEqWBSH1IcAlBkEBLYBGyZ2lfFaL2-dNQEErZKK0dwAI/pub?start=true&loop=true&delayms=3000"
-                class="text-decoration-none my-name">slide</a>.
-              <br>
-              National paper cover: <a href="https://www.prothomalo.com/education/campus/233kyqqeos"
-                class="text-decoration-none my-name">www.prothomalo.com/education/campus/233kyqqeos</a>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/Matplotlib.svg" alt="Matplotlib" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Matplotlib</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/Ploty.svg" alt="Seaborn" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Plotly</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/NumPy.svg" alt="NumPy" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">NumPy</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/Pandas.svg" alt="Pandas" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Pandas</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/icons8-latex.svg" alt="Jupyter" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">LaTeX</span>
+            </span>
+
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/Git.svg" alt="Jupyter" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Git</span>
+            </span>
+
+            
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/OpenCV_logo_no_text-1.svg" alt="Jupyter" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">OpenCV</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/Bootstrap.svg" alt="Jupyter" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Bootstrap</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/MySQL.svg" alt="Jupyter" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">MySQL</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/Jupyter.svg" alt="Jupyter" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Jupyter</span>
+            </span>
+
+            <style>
+              .icon-link:hover .icon-img,
+              .icon-wrapper:hover .icon-img {
+                transform: scale(1.15) rotate(-8deg);
+                filter: drop-shadow(0 0 6px rgb(107, 107, 107));
+              }
+            </style>
             </p>
+            <p>
+            <h5 class="mb-3">Programming Languages:</h5>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
 
-            <div class="d-flex flex-row flex-wrap justify-content-center align-items-center gap-3 my-3">
-              <img src="assets/IMG_3791.jpg" class="img-fluid" style="max-width: 320px; min-width: 120px; width: 100%;"
-                alt="Me">
-              <img src="assets/prothomalo-bangla_2022-08_c14fcaa2-c43e-4088-a2ca-2794141c4f5c_4.webp" class="img-fluid"
-                style="max-width: 320px; min-width: 120px; width: 100%;" alt="Me">
-            </div>
-            <div class="d-flex flex-column">
-              <div class="d-flex flex-row embed-container">
-                <iframe
-                  src="https://docs.google.com/presentation/d/e/2PACX-1vSiDta7vl3ZaM20iBxB8P6wkKqwTX9S8hmnWEqWBSH1IcAlBkEBLYBGyZ2lfFaL2-dNQEErZKK0dwAI/pubembed?start=true&loop=true&delayms=3000&rm=minimal"
-                  frameborder="0" allowfullscreen="true" mozallowfullscreen="true"
-                  webkitallowfullscreen="true"></iframe>
-              </div>
+              <img src="icons/Python.svg" alt="PyTorch" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
 
-            </div>
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">Python</span>
+            </span>
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/C++ (CPlusPlus).svg" alt="PyTorch" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">C++</span>
+            </span>
+
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/HTML5.svg" alt="Jupyter" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">HTML</span>
+            </span>
+
+            <span class="icon-wrapper"
+              style="display: inline-block; vertical-align: middle; margin-left: 8px; text-align: center;">
+
+              <img src="icons/813115ec503e2413dbc35eb8f95ebf22.png" alt="PyTorch" class="icon-img"
+                style="width: 28px; height: 28px; transition: transform 0.2s, filter 0.2s;">
+
+              <span class="icon-caption" style="display: block; font-size: 0.9em; margin-top: 2px;">SQL</span>
+            </span>
+
+
+            <style>
+              .icon-link:hover .icon-img,
+              .icon-wrapper:hover .icon-img {
+                transform: scale(1.15) rotate(-8deg);
+                filter: drop-shadow(0 0 6px rgb(107, 107, 107));
+              }
+            </style>
+            </p>
           </div>
 
-          </p>
-        </div>
 
-        <p class="mb-3 mt-3 font-medium w-100 text-center text-muted" style="font-size: 0.95em;">
-          &copy; 2025 Md Nuho Ul Alam. All rights reserved. Designed &amp; developed by Md Nuho Ul Alam.
-        </p>
 
-      </div>
-    </div>
-  </div>
+          <div class="mt-5">
+            <h2>News</h2>
 
-  <div class="modal fade" id="pubImgModal" tabindex="-1" aria-labelledby="pubImgModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-transparent border-0">
-        <div class="modal-body text-center p-0">
-          <div class="pub-modal-img-wrapper">
-            <img id="pubModalImg" src="" alt="" class="img-fluid rounded" style="max-height:80vh;">
           </div>
-          <div id="pubModalCaption" class="mt-3 text-light bg-dark bg-opacity-75 rounded p-2 small"></div>
+
         </div>
       </div>
     </div>
-  </div>
+
+    <div class="modal fade" id="pubImgModal" tabindex="-1" aria-labelledby="pubImgModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body text-center p-0">
+            <div class="pub-modal-img-wrapper">
+              <img id="pubModalImg" src="" alt="" class="img-fluid rounded" style="max-height:80vh;">
+            </div>
+            <div id="pubModalCaption" class="mt-3 text-light bg-dark bg-opacity-75 rounded p-2 small"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-    crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <div class="page-fade"></div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer mt-auto py-3 bg-dark text-light">
+    <div class="container-sm text-center">
+      <div class="mb-1">
+        <a href="mailto:mdnuhoulalam@gmail.com" class="text-decoration-none text-light me-3">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158" target="_blank"
+          class="text-decoration-none text-light me-3">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=EBcFeGUAAAAJ" target="_blank"
+          class="text-decoration-none text-light me-3">
+          <i class="bi bi-mortarboard-fill"></i>
+        </a>
+      </div>
+      <div class="small text-secondary">
+        &copy; 2025 Md Nuho Ul Alam. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>
