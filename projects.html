@@ -169,7 +169,7 @@
                     </div>
 
 
-                    <!-- <hr style="height: 2px; background-color: white;">
+                    <hr style="height: 2px; background-color: white;">
 
                     <div class="mt-5">
                         <h2>
@@ -177,12 +177,12 @@
                         </h2>
 
                         <div style="color: #b0b0b0;" class="mb-4">
-                            for undergraduate course &mdash; CSE 4878: Machine Learning and Data Mining Lab (Spring
+                            for undergraduate course &mdash; CSE 4872: Neural Network and Fuzzy System Lab (Spring
                             2022)
                         </div>
 
                         <div class="mb-4">
-                            <a href="https://github.com/devKiam/Breast-Cancer-Detection/tree/main" target="_blank"
+                            <a href="https://github.com/devKiam/Skin-Lesion-Classification/tree/main" target="_blank"
                                 rel="noopener" class="icon-link">
                                 <span class="icon-wrapper">
                                     <img src="icons/icons8-github.svg" alt="github" class="icon-img"
@@ -197,72 +197,35 @@
                                 <ul class="custom-list">
 
                                     <li>
-                                        Analyzed datasets from two different sources:
-
-                                        <ul>
-                                            <li><a href="https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic"
-                                                    class="text-decoration-none my-name">Breast Cancer Wisconsin
-                                                    (Diagnostic) Dataset</a> [Modality: Structured (tabular)]
-                                                &mdash;
-                                                Contains features extracted from digitized images of fine needle
-                                                aspirates
-                                                (FNA) of breast masses. These features describe the characteristics
-                                                of the
-                                                cell nuclei present in the images.</li>
-
-                                            <li><a href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images/data"
-                                                    class="text-decoration-none my-name">Breast Histopathology
-                                                    Images
-                                                    Dataset</a> [Modality: Image] &mdash; Comprises image patches of
-                                                Invasive Ductal Carcinoma (IDC), the most common subtype of breast
-                                                cancer.
-                                            </li>
-                                        </ul>
-
-
+                                        Leveraged the <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T" class="text-decoration-none my-name">HAM10000 dataset</a>, which contains 10,015 dermatoscopic images categorized into seven classes of pigmented skin lesions: actinic keratoses and intraepithelial carcinoma/Bowen's disease (akiec), basal cell carcinoma (bcc), benign keratosis-like lesions (bkl; including solar lentigines, seborrheic keratoses, and lichen-planus-like keratoses), dermatofibroma (df), melanoma (mel), melanocytic nevi (nv), and vascular lesions (vasc; including angiomas, angiokeratomas, pyogenic granulomas, and hemorrhage).
                                     </li>
 
 
-                                    <li><strong>Malignant vs. Benign Classification:</strong> Preprocessed the
-                                        Breast Cancer
-                                        Wisconsin
-                                        (Diagnostic) dataset by handling missing values, removing highly correlated
-                                        features, and applying feature scaling. Trained models using Logistic
-                                        Regression,
-                                        K-Nearest Neighbors, Decision Tree, Random Forest, and Gradient Boosting
-                                        classifiers, then ranked their performance based on classification scores.
+                                    <li>Trained and fine-tuned the hyperparameters of four CNN-based models (DenseNet, EfficientNet-B5, ResNeXt-50, ResNeXt-101), a contrastive learning-based model (SwAV), and a Graph Convolutional Network-based model Vision GNN (ViG) for skin lesion classification, and compared their performance across multiple classification metrics.
                                     </li>
 
                                     <li>
-                                        <strong>Ductal Carcinoma (IDC) Detection:</strong> Downsampled the dataset
-                                        to handle
-                                        class
-                                        imbalance and developed a Convolutional Neural Network (CNN), which was
-                                        fine-tuned
-                                        for the IDC classification task.
+                                        Additionally, implemented and conducted an ablation study on a soft voting ensemble of models — including SwAV, Vision Transformer (ViT), Multi-Axis Vision Transformer (MaxViT), EfficientNet-B5, Inception-V3, DenseNet-121, ResNeXt-50, ResNeXt-101, and ResNeXt-101 64D — achieving the highest accuracy.
                                     </li>
 
-                                    <li><strong>Frameworks/Tools Used:</strong> TensorFlow, scikit-learn, Pandas,
-                                        NumPy,
-                                        Matplotlib, Seaborn, and
-                                        OpenCV.</li>
+                                    <li><strong>Frameworks/Tools Used:</strong> PyTorch, Plotly, Matplotlib, Weights & Biases, and OpenCV.</li>
                                 </ul>
                             </div>
                             <div class="col-md-3">
                                 <div class="d-flex gap-1 flex-wrap justify-content-center pub-fig-row">
                                     <figure class="pub-thumb-box d-flex flex-column align-items-center w-100"
                                         style="max-width: 1000px;">
-                                        <img src="assets/breast cancer project figures.svg"
+                                        <img src="assets/Untitled (2).svg"
                                             class="img-fluid pub-fade-img pub-thumb-img"
-                                            alt="Some figures from the project."
-                                            data-caption="Some figures from the project.">
+                                            alt="Trained models performance comparisions."
+                                            data-caption="Trained models performance comparisions.">
                                     </figure>
                                 </div>
                             </div>
 
                         </div>
 
-                    </div> -->
+                    </div>
                 </div>
             </div>
 
