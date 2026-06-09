@@ -247,6 +247,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  const currentPage = window.location.pathname.split('/').pop();
+  if (['research.html', 'projects.html'].includes(currentPage)) {
+    document.querySelectorAll('.pub-thumb-box .pub-thumb-img').forEach(img => {
+      if (img.closest('.pub-thumb-img-wrap')) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'pub-thumb-img-wrap';
+      img.parentNode.insertBefore(wrap, img);
+      wrap.appendChild(img);
+      const overlay = document.createElement('span');
+      overlay.className = 'pub-thumb-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      overlay.textContent = 'tap to enlarge';
+      wrap.appendChild(overlay);
+    });
+  }
+
   // Publication thumbnail popup
   document.querySelectorAll('.pub-thumb-box').forEach(box => {
     box.addEventListener('click', function () {
