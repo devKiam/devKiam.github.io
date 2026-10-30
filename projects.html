@@ -103,12 +103,87 @@
 
                     <div class="mt-5">
                         <h2>
+                            Advancing Skin Lesion Classification with Cross-Validated Ensemble Learning
+                        </h2>
+
+                        <div style="color: #b0b0b0;" class="mb-4">
+                            CSE 4872: Neural Network and Fuzzy System Lab (Spring 2022), extended with stratified five-fold
+                            cross-validation
+                        </div>
+
+                        <div class="mb-4">
+                            <a href="https://github.com/devKiam/Advancing-Skin-Lesion-Classification-with-Cross-Validated-Ensemble-Learning" target="_blank"
+                                rel="noopener" class="icon-link">
+                                <span class="icon-wrapper">
+                                    <img src="icons/icons8-github.svg" alt="github" class="icon-img"
+                                        style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
+                                </span>
+                            </a>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="custom-list">
+                                    <li>
+                                        Evaluated seven deep-learning models and a soft-voting ensemble for seven-class
+                                        classification using the <a
+                                            href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T"
+                                            class="text-decoration-none my-name">HAM10000 dataset</a> of 10,015
+                                        dermatoscopic images.
+                                    </li>
+
+                                    <li>
+                                        Compared SwAV, Inception-v3, ResNeXt-50, two ResNeXt-101 variants,
+                                        EfficientNet-B5, and DenseNet-121 using stratified five-fold
+                                        cross-validation.
+                                    </li>
+
+                                    <li>
+                                        The ensemble achieved the best mean scores across all four reported metrics:
+                                        accuracy 0.8622, macro-F1 0.7324, ROC-AUC 0.9871, and PR-AUC 0.8955.
+                                    </li>
+
+                                    <li><strong>Frameworks/Tools:</strong> PyTorch, torchvision, timm, scikit-learn,
+                                        Matplotlib, Plotly, Weights &amp; Biases, and OpenCV.</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-center pub-fig-row">
+                                    <figure class="pub-thumb-box d-flex flex-column align-items-center w-100">
+                                        <img src="assets/skin-lesion-macro-roc.png"
+                                            class="img-fluid pub-fade-img pub-thumb-img"
+                                            alt="Macro-averaged ROC curves for the ensemble and individual models across five folds."
+                                            data-caption="Macro-averaged ROC curves; mean and 95% confidence interval over five folds.">
+                                        <figcaption class="small">Macro-averaged ROC curves</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-center pub-fig-row">
+                                    <figure class="pub-thumb-box d-flex flex-column align-items-center w-100">
+                                        <img src="assets/skin-lesion-macro-pr.png"
+                                            class="img-fluid pub-fade-img pub-thumb-img"
+                                            alt="Macro-averaged precision-recall curves for the ensemble and individual models across five folds."
+                                            data-caption="Macro-averaged precision-recall curves; mean and 95% confidence interval over five folds.">
+                                        <figcaption class="small">Macro-averaged precision-recall curves</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <hr style="height: 2px; background-color: white;">
+
+                    <div class="mt-5">
+                        <h2>
                             Breast Cancer Detection Using Convolutional Neural Network and Machine Learning Algorithms
                         </h2>
 
                         <div style="color: #b0b0b0;" class="mb-4">
-                            for undergraduate course &mdash; CSE 4878: Machine Learning and Data Mining Lab (Spring
-                            2022)
+                            CSE 4878: Machine Learning and Data Mining Lab (Spring 2022)
                         </div>
 
                         <div class="mb-4">
@@ -186,65 +261,6 @@
                                             class="img-fluid pub-fade-img pub-thumb-img"
                                             alt="Some figures from the project."
                                             data-caption="Some figures from the project.">
-                                    </figure>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <hr style="height: 2px; background-color: white;">
-
-                    <div class="mt-5">
-                        <h2>
-                            Skin Lesion Classification
-                        </h2>
-
-                        <div style="color: #b0b0b0;" class="mb-4">
-                            for undergraduate course &mdash; CSE 4872: Neural Network and Fuzzy System Lab (Spring
-                            2022)
-                        </div>
-
-                        <div class="mb-4">
-                            <a href="https://github.com/devKiam/Skin-Lesion-Classification/tree/main" target="_blank"
-                                rel="noopener" class="icon-link">
-                                <span class="icon-wrapper">
-                                    <img src="icons/icons8-github.svg" alt="github" class="icon-img"
-                                        style="width: 32px; height: 32px; transition: transform 0.2s, filter 0.2s;">
-                                </span>
-                            </a>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-9">
-                                <ul class="custom-list">
-
-                                    <li>
-                                        Leveraged the <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T" class="text-decoration-none my-name">HAM10000 dataset</a>, which contains 10,015 dermatoscopic images categorized into seven classes of pigmented skin lesions: actinic keratoses and intraepithelial carcinoma/Bowen's disease (akiec), basal cell carcinoma (bcc), benign keratosis-like lesions (bkl; including solar lentigines, seborrheic keratoses, and lichen-planus-like keratoses), dermatofibroma (df), melanoma (mel), melanocytic nevi (nv), and vascular lesions (vasc; including angiomas, angiokeratomas, pyogenic granulomas, and hemorrhage).
-                                    </li>
-
-
-                                    <li>Trained and fine-tuned the hyperparameters of four CNN-based models (DenseNet, EfficientNet-B5, ResNeXt-50, ResNeXt-101), a contrastive learning-based model (SwAV), and a Graph Convolutional Network-based model Vision GNN (ViG) for skin lesion classification, and compared their performance across multiple classification metrics.
-                                    </li>
-
-                                    <li>
-                                        Additionally, implemented and conducted an ablation study on a soft voting ensemble of models — including SwAV, Vision Transformer (ViT), Multi-Axis Vision Transformer (MaxViT), EfficientNet-B5, Inception-V3, DenseNet-121, ResNeXt-50, ResNeXt-101, and ResNeXt-101 64D — achieving the highest accuracy.
-                                    </li>
-
-                                    <li><strong>Frameworks/Tools Used:</strong> PyTorch, Plotly, Matplotlib, Weights & Biases, and OpenCV.</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="d-flex gap-1 flex-wrap justify-content-center pub-fig-row">
-                                    <figure class="pub-thumb-box d-flex flex-column align-items-center w-100"
-                                        style="max-width: 1000px;">
-                                        <img src="assets/Untitled (2).svg"
-                                            class="img-fluid pub-fade-img pub-thumb-img"
-                                            alt="Trained models performance comparisions."
-                                            data-caption="Trained models performance comparisions.">
                                     </figure>
                                 </div>
                             </div>
