@@ -22,114 +22,6 @@ function fitMyNameToWidth(el, maxFont = 30, minFont = 8) {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-	const contentRoot = document.querySelector("main") || document.getElementById("blogs");
-	if (!contentRoot) return;
-
-	const createId = (prefix, index) => {
-		let id = `${prefix}-${index}`;
-		while (document.getElementById(id)) {
-			id += "-section";
-		}
-		return id;
-	};
-	const ensureId = (target, prefix, index) => {
-		if (!target.id || document.getElementById(target.id) !== target) {
-			target.id = createId(prefix, index);
-		}
-		return target.id;
-	};
-	const pageHeading = contentRoot.querySelector("h1.title") || document.getElementById("main-name");
-	let sections = Array.from(contentRoot.querySelectorAll("h2")).filter(heading => !heading.closest(".modal"));
-
-	if (sections.length === 0) {
-		const firstSectionHeading = contentRoot.querySelector("h3, h4");
-		if (firstSectionHeading) sections = [firstSectionHeading];
-	}
-
-	const navigation = document.createElement("nav");
-	navigation.className = "page-toc";
-	navigation.setAttribute("aria-label", "On this page");
-	navigation.innerHTML = `
-		<div class="page-toc-heading">On this page</div>
-		<button class="page-toc-toggle" type="button" aria-expanded="false">
-			On this page <span aria-hidden="true">+</span>
-		</button>
-		<ul class="page-toc-links"></ul>
-	`;
-	const list = navigation.querySelector(".page-toc-links");
-	const links = [];
-	const addLink = (target, label) => {
-		const item = document.createElement("li");
-		const link = document.createElement("a");
-		link.href = `#${target.id}`;
-		link.textContent = label;
-		item.appendChild(link);
-		list.appendChild(item);
-		links.push({ link, target });
-	};
-
-	if (pageHeading) {
-		ensureId(pageHeading, "page-toc-top", 1);
-		addLink(pageHeading, pageHeading.id === "main-name" ? "About" : "Top");
-	}
-
-	sections.forEach((section, index) => {
-		ensureId(section, "page-toc-section", index + 1);
-		addLink(section, section.textContent.replace(/\s+/g, " ").trim());
-	});
-
-	if (links.length === 0) return;
-	document.body.appendChild(navigation);
-	document.body.classList.add("page-toc-enabled");
-
-	const toggle = navigation.querySelector(".page-toc-toggle");
-	const closeNavigation = () => {
-		navigation.classList.remove("is-open");
-		toggle.setAttribute("aria-expanded", "false");
-		toggle.querySelector("span").textContent = "+";
-	};
-
-	toggle.addEventListener("click", () => {
-		const isOpen = navigation.classList.toggle("is-open");
-		toggle.setAttribute("aria-expanded", String(isOpen));
-		toggle.querySelector("span").textContent = isOpen ? "\u2212" : "+";
-	});
-
-	links.forEach(({ link }) => {
-		link.addEventListener("click", () => {
-			closeNavigation();
-			links.forEach(({ link: otherLink }) => otherLink.removeAttribute("aria-current"));
-			link.setAttribute("aria-current", "location");
-		});
-	});
-
-	document.addEventListener("keydown", event => {
-		if (event.key === "Escape" && navigation.classList.contains("is-open")) {
-			closeNavigation();
-			toggle.focus();
-		}
-	});
-
-	if ("IntersectionObserver" in window) {
-		const observer = new IntersectionObserver(entries => {
-			const visibleSections = entries.filter(entry => entry.isIntersecting);
-			if (visibleSections.length === 0) return;
-			const currentTarget = visibleSections.sort(
-				(first, second) => first.boundingClientRect.top - second.boundingClientRect.top
-			)[0].target;
-			links.forEach(({ link, target }) => {
-				if (target === currentTarget) {
-					link.setAttribute("aria-current", "location");
-				} else {
-					link.removeAttribute("aria-current");
-				}
-			});
-		}, { rootMargin: "-90px 0px -65% 0px" });
-		links.forEach(({ target }) => observer.observe(target));
-	}
-});
-
 window.addEventListener("DOMContentLoaded", () => {
 	document.querySelectorAll('.fit-text').forEach(el => fitTextToWidth(el));
 	window.addEventListener("resize", () => {
@@ -147,25 +39,55 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-	const fadeDiv = document.querySelector('.page-fade');
-	if (fadeDiv) {
-		fadeDiv.classList.remove('active'); // Ensure it's hidden on load
+	let fadeDiv = document.querySelector('.page-fade');
+	if (!fadeDiv) {
+		fadeDiv = document.createElement('div');
+		fadeDiv.className = 'page-fade';
+		document.body.appendChild(fadeDiv);
+	}
+
+	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	let isNavigating = false;
+	if (!prefersReducedMotion) {
+		fadeDiv.style.transition = 'none';
+		fadeDiv.classList.add('active');
+		void fadeDiv.offsetWidth;
+		fadeDiv.style.removeProperty('transition');
+		void fadeDiv.offsetWidth;
+		fadeDiv.classList.remove('active');
 	}
 
 	document.querySelectorAll('.nav-link').forEach(link => {
-		link.addEventListener('click', function (e) {
-			const href = link.getAttribute('href');
-			if (href && !href.startsWith('#') && !link.classList.contains('active')) {
-				e.preventDefault();
-				if (fadeDiv) {
-					fadeDiv.classList.add('active');
-					setTimeout(() => {
-						window.location.href = href;
-					}, 400); // match transition duration
-				} else {
-					window.location.href = href;
-				}
+		link.addEventListener('click', event => {
+			if (
+				isNavigating ||
+				event.defaultPrevented ||
+				event.button !== 0 ||
+				event.metaKey ||
+				event.ctrlKey ||
+				event.shiftKey ||
+				event.altKey ||
+				link.target === '_blank' ||
+				link.hasAttribute('download')
+			) {
+				return;
 			}
+
+			const href = link.getAttribute('href');
+			if (!href || href.startsWith('#') || link.classList.contains('active')) return;
+
+			event.preventDefault();
+			isNavigating = true;
+			fadeDiv.classList.add('active');
+			const transitionDuration = getComputedStyle(fadeDiv).transitionDuration.split(',')[0].trim();
+			const duration = prefersReducedMotion
+				? 0
+				: transitionDuration.endsWith('ms')
+					? parseFloat(transitionDuration)
+					: parseFloat(transitionDuration) * 1000;
+			setTimeout(() => {
+				window.location.assign(link.href);
+			}, duration);
 		});
 	});
 });
