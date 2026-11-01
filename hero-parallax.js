@@ -218,3 +218,45 @@
 	}
 	requestAnimationFrame(loop);
 })();
+
+/*
+ * Terminal line: types its text, pauses, erases, and repeats while it is on screen.
+ * Markup: <p class="term-line" data-text="...">  (full text stays readable to screen readers)
+ */
+(function () {
+	const lines = document.querySelectorAll('.term-line[data-text]');
+	if (!lines.length) return;
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	lines.forEach(line => {
+		const text = line.dataset.text;
+		line.setAttribute('aria-label', '> ' + text);
+		line.innerHTML =
+			'<span class="term-ghost" aria-hidden="true"><span class="term-prompt">&gt;</span>' + escapeHtml(text) + '<span class="term-cursor"></span></span>' +
+			'<span class="term-live" aria-hidden="true"><span class="term-prompt">&gt;</span><span class="term-text"></span><span class="term-cursor"></span></span>';
+		const out = line.querySelector('.term-text');
+		if (reduce) { out.textContent = text; return; }
+
+		let i = 0, typing = true, timer = null, visible = false;
+		function step() {
+			if (!visible) { timer = null; return; }
+			if (typing) {
+				out.textContent = text.slice(0, ++i);
+				if (i >= text.length) { typing = false; timer = setTimeout(step, 2600); return; }
+				timer = setTimeout(step, 38 + Math.random() * 45);
+			} else {
+				out.textContent = text.slice(0, --i);
+				if (i <= 0) { typing = true; timer = setTimeout(step, 700); return; }
+				timer = setTimeout(step, 18);
+			}
+		}
+		new IntersectionObserver(entries => {
+			visible = entries[0].isIntersecting;
+			if (visible && !timer) timer = setTimeout(step, 400);
+		}).observe(line);
+	});
+
+	function escapeHtml(t) {
+		return t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+	}
+})();

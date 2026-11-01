@@ -130,21 +130,28 @@
                         </div>
                     </div>
 
-                    <div class="mt-5">
-                        <h2>
-                            <a href="https://github.com/devKiam/Advancing-Skin-Lesion-Classification-with-Cross-Validated-Ensemble-Learning" target="_blank" rel="noopener" class="project-title-link">Advancing Skin Lesion Classification with Cross-Validated Ensemble Learning<span class="project-gh" aria-label="View on GitHub"><i class="bi bi-github"></i></span></a>
-                        </h2>
-
-                        <div style="color: #b0b0b0;" class="mb-4">
-                            CSE 4872: Neural Network and Fuzzy System Lab (Spring 2022), extended with stratified five-fold
-                            cross-validation
+                    <section class="rs-domain">
+                        <div class="rs-domain-head">
+                            <h2 class="rs-domain-title">Course Projects</h2>
+                            <p class="rs-domain-sub">Machine learning for medical imaging and diagnosis</p>
                         </div>
 
-                        
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul class="custom-list">
+                        <!-- Skin lesion classification -->
+                        <article class="rs-card" id="skin-lesion">
+                            <div class="rs-card-text">
+                                <div class="rs-tags">
+                                    <span class="rs-tag">Course Project</span><span class="rs-tag rs-tag-soft">Medical
+                                        Imaging</span><span class="rs-tag rs-tag-soft">Ensemble Learning</span>
+                                </div>
+                                <h3 class="rs-card-title">
+                                    <a href="https://github.com/devKiam/Advancing-Skin-Lesion-Classification-with-Cross-Validated-Ensemble-Learning"
+                                        target="_blank" rel="noopener" class="project-title-link">Advancing Skin Lesion
+                                        Classification with Cross-Validated Ensemble Learning<span class="project-gh"
+                                            aria-label="View on GitHub"><i class="bi bi-github"></i></span></a>
+                                </h3>
+                                <p class="rs-note">CSE 4872: Neural Network and Fuzzy System Lab (Spring 2022), extended
+                                    with stratified five-fold cross-validation</p>
+                                <ul class="custom-list rs-points">
                                     <li>
                                         Evaluated seven deep-learning models and a soft-voting ensemble for seven-class
                                         classification using the <a
@@ -152,133 +159,88 @@
                                             class="text-decoration-none my-name">HAM10000 dataset</a> of 10,015
                                         dermatoscopic images.
                                     </li>
-
                                     <li>
                                         Compared SwAV, Inception-v3, ResNeXt-50, two ResNeXt-101 variants,
-                                        EfficientNet-B5, and DenseNet-121 using stratified five-fold
-                                        cross-validation.
+                                        EfficientNet-B5, and DenseNet-121 using stratified five-fold cross-validation.
                                     </li>
-
                                     <li>
                                         The ensemble achieved the best mean scores across all four reported metrics:
                                         accuracy 0.8622, macro-F1 0.7324, ROC-AUC 0.9871, and PR-AUC 0.8955.
                                     </li>
-
                                     <li><strong>Frameworks/Tools:</strong> PyTorch, torchvision, timm, scikit-learn,
                                         Matplotlib, Plotly, Weights &amp; Biases, and OpenCV.</li>
                                 </ul>
                             </div>
-                            <div class="col-md-6">
-                                <div class="d-flex justify-content-center pub-fig-row">
-                                    <figure class="pub-thumb-box d-flex flex-column align-items-center w-100">
-                                        <img src="assets/skin-lesion-macro-roc.png"
-                                            class="img-fluid pub-fade-img pub-thumb-img"
-                                            alt="Macro-averaged ROC curves for the ensemble and individual models across five folds."
-                                            data-caption="Macro-averaged ROC curves; mean and 95% confidence interval over five folds.">
-                                        <figcaption class="small">Macro-averaged ROC curves</figcaption>
-                                    </figure>
-                                </div>
+                            <div class="rs-figs">
+                                <figure class="pub-thumb-box rs-fig rs-fig-wide">
+                                    <img src="assets/skin-lesion-macro-roc.png" class="img-fluid pub-fade-img pub-thumb-img"
+                                        alt="Macro-averaged ROC curves for the ensemble and individual models across five folds."
+                                        data-caption="Macro-averaged ROC curves; mean and 95% confidence interval over five folds.">
+                                    <figcaption>Macro-averaged ROC curves</figcaption>
+                                </figure>
+                                <figure class="pub-thumb-box rs-fig rs-fig-wide">
+                                    <img src="assets/skin-lesion-macro-pr.png" class="img-fluid pub-fade-img pub-thumb-img"
+                                        alt="Macro-averaged precision-recall curves for the ensemble and individual models across five folds."
+                                        data-caption="Macro-averaged precision-recall curves; mean and 95% confidence interval over five folds.">
+                                    <figcaption>Macro-averaged precision-recall curves</figcaption>
+                                </figure>
                             </div>
-                            <div class="col-md-6">
-                                <div class="d-flex justify-content-center pub-fig-row">
-                                    <figure class="pub-thumb-box d-flex flex-column align-items-center w-100">
-                                        <img src="assets/skin-lesion-macro-pr.png"
-                                            class="img-fluid pub-fade-img pub-thumb-img"
-                                            alt="Macro-averaged precision-recall curves for the ensemble and individual models across five folds."
-                                            data-caption="Macro-averaged precision-recall curves; mean and 95% confidence interval over five folds.">
-                                        <figcaption class="small">Macro-averaged precision-recall curves</figcaption>
-                                    </figure>
+                        </article>
+
+                        <!-- Breast cancer detection -->
+                        <article class="rs-card" id="breast-cancer">
+                            <div class="rs-card-text">
+                                <div class="rs-tags">
+                                    <span class="rs-tag">Course Project</span><span class="rs-tag rs-tag-soft">Medical
+                                        Imaging</span><span class="rs-tag rs-tag-soft">Tabular ML</span>
                                 </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <hr style="height: 2px; background-color: white;">
-
-                    <div class="mt-5">
-                        <h2>
-                            <a href="https://github.com/devKiam/Breast-Cancer-Detection/tree/main" target="_blank" rel="noopener" class="project-title-link">Breast Cancer Detection Using Convolutional Neural Network and Machine Learning Algorithms<span class="project-gh" aria-label="View on GitHub"><i class="bi bi-github"></i></span></a>
-                        </h2>
-
-                        <div style="color: #b0b0b0;" class="mb-4">
-                            CSE 4878: Machine Learning and Data Mining Lab (Spring 2022)
-                        </div>
-
-                        
-
-                        <div class="row">
-                            <div class="col-md-9">
-                                <ul class="custom-list">
-
+                                <h3 class="rs-card-title">
+                                    <a href="https://github.com/devKiam/Breast-Cancer-Detection/tree/main" target="_blank"
+                                        rel="noopener" class="project-title-link">Breast Cancer Detection Using
+                                        Convolutional Neural Network and Machine Learning Algorithms<span
+                                            class="project-gh" aria-label="View on GitHub"><i
+                                                class="bi bi-github"></i></span></a>
+                                </h3>
+                                <p class="rs-note">CSE 4878: Machine Learning and Data Mining Lab (Spring 2022)</p>
+                                <ul class="custom-list rs-points">
                                     <li>
                                         Analyzed datasets from two different sources:
-
                                         <ul>
                                             <li><a href="https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic"
                                                     class="text-decoration-none my-name">Breast Cancer Wisconsin
-                                                    (Diagnostic) Dataset</a> [Modality: Structured (tabular)]
-                                                &mdash;
+                                                    (Diagnostic) Dataset</a> [Modality: Structured (tabular)] &mdash;
                                                 Contains features extracted from digitized images of fine needle
-                                                aspirates
-                                                (FNA) of breast masses. These features describe the characteristics
-                                                of the
-                                                cell nuclei present in the images.</li>
-
+                                                aspirates (FNA) of breast masses. These features describe the
+                                                characteristics of the cell nuclei present in the images.</li>
                                             <li><a href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images/data"
-                                                    class="text-decoration-none my-name">Breast Histopathology
-                                                    Images
+                                                    class="text-decoration-none my-name">Breast Histopathology Images
                                                     Dataset</a> [Modality: Image] &mdash; Comprises image patches of
                                                 Invasive Ductal Carcinoma (IDC), the most common subtype of breast
-                                                cancer.
-                                            </li>
+                                                cancer.</li>
                                         </ul>
-
-
                                     </li>
-
-
-                                    <li><strong>Malignant vs. Benign Classification:</strong> Preprocessed the
-                                        Breast Cancer
-                                        Wisconsin
-                                        (Diagnostic) dataset by handling missing values, removing highly correlated
-                                        features, and applying feature scaling. Trained models using Logistic
-                                        Regression,
-                                        K-Nearest Neighbors, Decision Tree, Random Forest, and Gradient Boosting
-                                        classifiers, then ranked their performance based on classification scores.
-                                    </li>
-
-                                    <li>
-                                        <strong>Ductal Carcinoma (IDC) Detection:</strong> Downsampled the dataset
-                                        to handle
-                                        class
-                                        imbalance and developed a Convolutional Neural Network (CNN), which was
-                                        fine-tuned
-                                        for the IDC classification task.
-                                    </li>
-
-                                    <li><strong>Frameworks/Tools Used:</strong> TensorFlow, scikit-learn, Pandas,
-                                        NumPy,
-                                        Matplotlib, Seaborn, and
-                                        OpenCV.</li>
+                                    <li><strong>Malignant vs. Benign Classification:</strong> Preprocessed the Breast
+                                        Cancer Wisconsin (Diagnostic) dataset by handling missing values, removing highly
+                                        correlated features, and applying feature scaling. Trained models using Logistic
+                                        Regression, K-Nearest Neighbors, Decision Tree, Random Forest, and Gradient
+                                        Boosting classifiers, then ranked their performance based on classification
+                                        scores.</li>
+                                    <li><strong>Ductal Carcinoma (IDC) Detection:</strong> Downsampled the dataset to
+                                        handle class imbalance and developed a Convolutional Neural Network (CNN), which
+                                        was fine-tuned for the IDC classification task.</li>
+                                    <li><strong>Frameworks/Tools Used:</strong> TensorFlow, scikit-learn, Pandas, NumPy,
+                                        Matplotlib, Seaborn, and OpenCV.</li>
                                 </ul>
                             </div>
-                            <div class="col-md-3">
-                                <div class="d-flex gap-1 flex-wrap justify-content-center pub-fig-row">
-                                    <figure class="pub-thumb-box d-flex flex-column align-items-center w-100"
-                                        style="max-width: 1000px;">
-                                        <img src="assets/Breast cancer figures.svg"
-                                            class="img-fluid pub-fade-img pub-thumb-img"
-                                            alt="Some figures from the project."
-                                            data-caption="Some figures from the project.">
-                                    </figure>
-                                </div>
+                            <div class="rs-figs rs-figs-single">
+                                <figure class="pub-thumb-box rs-fig rs-fig-wide rs-fig-tall">
+                                    <img src="assets/Breast cancer figures.svg" class="img-fluid pub-fade-img pub-thumb-img"
+                                        alt="Some figures from the project." data-caption="Some figures from the project.">
+                                    <figcaption>Some figures from the project</figcaption>
+                                </figure>
                             </div>
-
-                        </div>
-
-                    </div>
+                        </article>
+                    </section>
                 </div>
             </div>
 
