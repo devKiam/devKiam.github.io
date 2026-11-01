@@ -1034,3 +1034,484 @@ button {
 	z-index: 10000;
 	/* higher than .page-fade (9999) */
 }
+
+/* ---------- Space scene (all pages) + homepage intro ----------
+   The scene (deep-space sky + constellation network canvas, drawn by hero-parallax.js)
+   is fixed behind every page. It is full strength on the homepage and quietly dimmed
+   elsewhere (and on the homepage once you scroll down to the bio), so it never competes
+   with the text.
+   Classes on <html> (set by the small inline script in each page's <head>):
+     page-home      homepage
+     intro-play     first homepage view this visit: full intro (curtain, dark -> light)
+     hero-seen      later homepage views: intro replays quickly (--t)
+     scene-dim      network dimmed (inner pages, or homepage scrolled)
+     no-vt          browser lacks cross-page view transitions (fallback fade)
+   Intro timeline (seconds x --t): 0 curtain lifts, 0.2-1.8 sky and network light up,
+   1.6 photo, 2.8 name, 3.9 tagline, 4.4 links, 4.8 bio.
+*/
+:root { --t: 1; }
+.hero-seen { --t: 0.2; }
+
+html { background: #05060a; }
+html body { background: transparent !important; }
+
+/* ---- page-to-page navigation: a "focus pull" ----
+   The navbar and the space scene stay still; only the page content moves: it dissolves out
+   with a soft blur while drifting up, then the new page drifts in and sharpens into focus.
+   Chrome, Edge and Safari 18.2+ do this natively (view transitions). The content gets its
+   transition names only while a transition runs (class vt-run, set in each page's <head>),
+   so they never affect layering otherwise (e.g. the publication image pop-up). */
+@view-transition { navigation: auto; }
+.my-navbar { view-transition-name: site-nav; }
+.vt-run main { view-transition-name: page-main; }
+.vt-run .site-footer { view-transition-name: page-foot; }
+.vt-run .hero { view-transition-name: page-hero; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.7s; }
+::view-transition-group(page-main), ::view-transition-group(page-foot), ::view-transition-group(page-hero) {
+	animation-duration: 0.7s;
+	animation-timing-function: cubic-bezier(.2, .7, .2, 1);
+}
+::view-transition-old(page-main), ::view-transition-old(page-foot), ::view-transition-old(page-hero) {
+	animation: vt-out 0.35s ease-in both;
+}
+::view-transition-new(page-main), ::view-transition-new(page-foot), ::view-transition-new(page-hero) {
+	animation: vt-in 0.65s cubic-bezier(.2, .7, .2, 1) 0.18s both;
+}
+@keyframes vt-out { to { opacity: 0; filter: blur(8px); transform: translateY(-14px) scale(0.985); } }
+@keyframes vt-in  { from { opacity: 0; filter: blur(10px); transform: translateY(18px) scale(1.01); } }
+
+/* fallback for browsers without view transitions: the same focus pull, done with CSS */
+.no-vt main, .no-vt footer { animation: vt-in 0.65s cubic-bezier(.2, .7, .2, 1) backwards; }
+.no-vt.page-leaving main, .no-vt.page-leaving footer {
+	opacity: 0;
+	filter: blur(8px);
+	transform: translateY(-14px);
+	transition: opacity 0.3s ease-in, filter 0.3s ease-in, transform 0.3s ease-in;
+}
+
+/* page titles: coloured light drifting inside the letters (no blending, so the effect
+   also survives page transitions and sits cleanly on the dark scene) */
+.title {
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	background-image:
+		radial-gradient(circle at 18% 30%, var(--clr-4) 0, rgba(229, 76, 255, 0) 38%),
+		radial-gradient(circle at 82% 68%, var(--clr-3) 0, rgba(255, 198, 64, 0) 36%),
+		radial-gradient(circle at 55% 15%, var(--clr-2) 0, rgba(51, 255, 140, 0) 30%),
+		linear-gradient(var(--clr-1), var(--clr-1));
+	background-size: 220% 220%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: title-aurora 14s ease-in-out infinite alternate;
+}
+.title .aurora { display: none; }
+@keyframes title-aurora {
+	0%   { background-position: 0% 0%; }
+	50%  { background-position: 100% 60%; }
+	100% { background-position: 30% 100%; }
+}
+
+/* name in the navbar (all pages): same lettering as the intro, with a small glowing node */
+.nav-brand-name {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.7em;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 0.86rem;
+	letter-spacing: 0.32em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #e6ebf2 !important;
+	text-decoration: none;
+	margin-right: 1rem;
+	padding: 0.3rem 0;
+	transition: color 0.2s, text-shadow 0.2s;
+}
+.nav-brand-name::before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	flex: none;
+	border-radius: 50%;
+	background: #cfeaff;
+	box-shadow: 0 0 6px 1px rgba(150, 205, 255, 0.8), 0 0 14px rgba(150, 205, 255, 0.45);
+}
+.nav-brand-name:hover { color: #fff !important; text-shadow: 0 0 10px rgba(160, 210, 255, 0.7); }
+@media (max-width: 400px) { .nav-brand-name { letter-spacing: 0.2em; font-size: 0.78rem; } }
+
+#scene {
+	position: fixed;
+	inset: -40px;                 /* a little larger than the screen for parallax room */
+	z-index: -1;
+	overflow: hidden;
+	background: #05060a;
+	pointer-events: none;
+}
+
+.scene-layer {
+	position: absolute;
+	inset: -40px -80px;           /* overscan for parallax movement */
+	will-change: transform;
+}
+
+.hero-sky {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+}
+
+.scene-net {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	transition: opacity 1.2s ease;
+}
+.scene-dim .scene-net { opacity: 0.3; }
+
+.scene-vignette, .scene-shade {
+	position: absolute;
+	inset: 0;
+}
+.scene-vignette { background: radial-gradient(ellipse at 50% 42%, transparent 50%, rgba(0, 0, 0, 0.5) 100%); }
+.scene-shade {
+	background: rgba(5, 6, 10, 0.25);
+	opacity: 0;
+	transition: opacity 1.2s ease;
+}
+.scene-dim .scene-shade { opacity: 1; }
+
+/* first homepage view: sky, then the network, light up from dark (links form via JS) */
+.intro-play .sky-layer, .intro-play .scene-net { animation: hero-undim 2s ease-in-out backwards; }
+.intro-play .sky-layer { animation-delay: 0.2s; }
+.intro-play .scene-net { animation-delay: 0.8s; }
+@keyframes hero-undim {
+	from { filter: brightness(0.12); }
+	to   { filter: brightness(1); }
+}
+
+.hero-curtain { display: none; }
+.intro-play .hero-curtain {
+	display: block;
+	position: fixed;
+	inset: 0;
+	background: #000;
+	z-index: 2000;
+	pointer-events: none;
+	opacity: 0;
+	animation: hero-curtain 1.4s ease-out backwards;
+}
+@keyframes hero-curtain { from { opacity: 1; } }
+
+/* shooting star */
+.shooting-star {
+	position: absolute;
+	top: 14%;
+	left: 18%;
+	width: 140px;
+	height: 1.5px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9));
+	transform: rotate(16deg);
+	opacity: 0;
+	animation: hero-shoot 11s ease-in 6s infinite;
+}
+@keyframes hero-shoot {
+	0%   { opacity: 0; transform: translate(0, 0) rotate(16deg); }
+	2%   { opacity: 1; }
+	7%   { opacity: 0; transform: translate(420px, 120px) rotate(16deg); }
+	100% { opacity: 0; transform: translate(420px, 120px) rotate(16deg); }
+}
+
+/* ---------- homepage intro: photo, name, tagline, links ---------- */
+.hero {
+	position: relative;
+	height: calc(100vh - 57px);    /* full screen below the navbar, so the intro sits in the middle */
+	height: calc(100svh - 57px);
+	min-height: 480px;
+}
+
+.hero-intro {
+	/* fixed in place: when you scroll to the bio it fades out instead of sliding up */
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 57px;
+	height: calc(100vh - 57px);
+	height: calc(100svh - 57px);
+	min-height: 480px;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 1rem;
+	text-align: center;
+	will-change: transform;
+}
+
+.hero-photo {
+	position: relative;
+	width: clamp(130px, 22vh, 200px);
+	aspect-ratio: 1;
+	margin-bottom: 1.6rem;
+	animation: hero-photo 1.6s cubic-bezier(.2, .7, .2, 1) calc(var(--t) * 1.6s) backwards;
+}
+.hero-photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	box-shadow: 0 0 0 2px rgba(235, 240, 248, 0.6), 0 0 40px rgba(150, 190, 235, 0.1), 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+/* faint diagonal glass glare across the photo */
+.hero-photo::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	pointer-events: none;
+	background: linear-gradient(115deg,
+		rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.05) 38%,
+		rgba(255, 255, 255, 0) 38.5%, rgba(255, 255, 255, 0) 100%);
+}
+@keyframes hero-photo {
+	from { opacity: 0; transform: scale(0.6); filter: brightness(0) blur(12px); }
+	60%  { opacity: 1; filter: brightness(1.1) blur(0); }
+	to   { opacity: 1; transform: scale(1); filter: brightness(1) blur(0); }
+}
+
+/* a thin orbit ring with a small moon circling the photo */
+.hero-orbit {
+	position: absolute;
+	inset: -16px;
+	border-radius: 50%;
+	border: 1px solid rgba(210, 222, 240, 0.16);
+	animation: hero-fade 1.2s ease calc(var(--t) * 2.6s) backwards, hero-spin 14s linear infinite;
+	pointer-events: none;
+}
+.hero-orbit::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -4px;
+	width: 7px;
+	height: 7px;
+	margin-top: -3.5px;
+	border-radius: 50%;
+	background: #ffd7b5;
+	box-shadow: 0 0 10px #ffb98a;
+}
+@keyframes hero-spin { to { transform: rotate(360deg); } }
+@keyframes hero-fade { from { opacity: 0; } }
+
+.hero-name {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: clamp(1.2rem, 2.8vw, 2.1rem);
+	letter-spacing: clamp(3px, 0.7vw, 9px);
+	color: #f4f1ee;
+	text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+	margin: 0 0 0 0.5em;   /* balance the trailing letter-spacing */
+	perspective: 600px;
+}
+.hero-name .word { display: inline-block; white-space: nowrap; }
+.hero-name .ch {
+	display: inline-block;
+	animation: hero-flip 0.8s ease-out calc(var(--t) * 2.8s + var(--i) * 0.07s) backwards;
+}
+@keyframes hero-flip {
+	from { opacity: 0; transform: rotateY(90deg); filter: brightness(0.2); }
+	to   { opacity: 1; transform: rotateY(0); filter: brightness(1); }
+}
+
+.hero-tagline {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: clamp(0.62rem, 0.9vw, 0.78rem);
+	letter-spacing: clamp(2px, 0.35vw, 5px);
+	color: #aab3c0;
+	text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+	margin: 0.9rem 0 0;
+	animation: hero-tag 1.4s ease-out calc(var(--t) * 3.9s) backwards;
+}
+@keyframes hero-tag { from { opacity: 0; letter-spacing: 0.9em; } }
+
+.hero-links {
+	display: flex;
+	gap: 1.1rem;
+	margin-top: 1.3rem;
+	animation: hero-up 1s ease-out calc(var(--t) * 4.4s) backwards;
+}
+.hero-links a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	color: #e9e4f0;
+	font-size: 1.35rem;
+	opacity: 0.8;
+	transition: opacity 0.2s, transform 0.2s;
+}
+.hero-links a:hover { opacity: 1; transform: translateY(-2px); }
+.hero-links img { width: 26px; height: 26px; }
+@keyframes hero-up { from { opacity: 0; transform: translateY(12px); } }
+
+.hero-scroll {                 /* neon chevron: "there's more below" */
+	position: absolute;
+	left: 50%;
+	bottom: 18px;
+	z-index: 7;
+	padding: 6px 10px;
+	color: #e8f4ff;
+	font-size: 1.9rem;
+	line-height: 1;
+	text-decoration: none;
+	transform: translateX(-50%);
+	animation: hero-fade 1s ease calc(var(--t) * 5.2s) backwards,
+		hero-bob 2.2s ease-in-out infinite,
+		hero-neon 2.2s ease-in-out infinite;
+}
+.hero-scroll i { display: block; }
+.hero-scroll:hover { color: #fff; }
+@keyframes hero-neon {
+	0%, 100% { text-shadow: 0 0 4px rgba(190, 225, 255, 0.9), 0 0 12px rgba(120, 190, 255, 0.55), 0 0 26px rgba(120, 190, 255, 0.3); }
+	50%      { text-shadow: 0 0 6px rgba(210, 235, 255, 1), 0 0 18px rgba(120, 190, 255, 0.85), 0 0 38px rgba(120, 190, 255, 0.5); }
+}
+
+/* the bio scrolls over the (fading) intro. The about section fills the screen between the
+   navbar and the footer, so there is no empty band above it once you have scrolled down. */
+.page-home main {
+	position: relative;
+	z-index: 1;
+	min-height: calc(100vh - 57px - var(--footer-h, 92px));
+	min-height: calc(100svh - 57px - var(--footer-h, 92px));
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.about-head {
+	text-align: center;
+	margin: 1rem 0 2.6rem;
+}
+.about-title {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+	letter-spacing: 0.55em;
+	margin: 0 0 0 0.55em;          /* balance the trailing letter-spacing */
+	color: #f4f1ee;
+	text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+}
+.about-line {
+	display: block;
+	width: min(260px, 50%);
+	height: 1px;
+	margin: 1.1rem auto 0;
+	background: linear-gradient(90deg, rgba(160, 205, 255, 0), rgba(180, 215, 255, 0.85), rgba(160, 205, 255, 0));
+	box-shadow: 0 0 10px rgba(140, 200, 255, 0.45);
+}
+/* fades in as the photo fades out (class added by hero-parallax.js) */
+.js-about .about-title { opacity: 0; letter-spacing: 0.9em; transition: opacity 1s ease, letter-spacing 1.4s ease; }
+.js-about .about-line { transform: scaleX(0); transition: transform 1.2s ease 0.2s; }
+.js-about .about-in .about-title { opacity: 1; letter-spacing: 0.55em; }
+.js-about .about-in .about-line { transform: scaleX(1); }
+
+/* footer (all pages): frosted glass, glowing top edge, same lettering as the name */
+.site-footer {
+	position: relative;
+	z-index: 1;
+	padding: 1.5rem 0;
+	background: rgba(10, 11, 15, 0.55);
+	-webkit-backdrop-filter: blur(14px) saturate(140%);
+	backdrop-filter: blur(14px) saturate(140%);
+	font-family: 'Open Sans', sans-serif;
+}
+.site-footer::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 8%;
+	right: 8%;
+	height: 1px;
+	background: linear-gradient(90deg, rgba(160, 205, 255, 0), rgba(170, 210, 255, 0.5), rgba(160, 205, 255, 0));
+	box-shadow: 0 0 12px rgba(140, 200, 255, 0.35);
+}
+.site-footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+.footer-name, .footer-copy {
+	flex: 1;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	font-size: 0.68rem;
+	color: #8a929e;
+}
+.footer-copy { text-align: right; }
+.footer-links { display: flex; align-items: center; gap: 1.4rem; }
+.footer-links a {
+	display: inline-flex;
+	color: #c9d3df;
+	font-size: 1.05rem;
+	opacity: 0.75;
+	text-decoration: none;
+	transition: opacity 0.2s, color 0.2s, text-shadow 0.2s, filter 0.2s;
+}
+.footer-links a:hover {
+	opacity: 1;
+	color: #fff !important;
+	text-shadow: 0 0 10px rgba(160, 210, 255, 0.9);
+	filter: drop-shadow(0 0 6px rgba(160, 210, 255, 0.7));
+}
+.footer-rg {                    /* ResearchGate logo, tinted like the icon font */
+	display: inline-block;
+	width: 0.95em;
+	height: 0.95em;
+	background: currentColor;
+	-webkit-mask: url('icons/researchgate-brands-solid.svg') center / contain no-repeat;
+	mask: url('icons/researchgate-brands-solid.svg') center / contain no-repeat;
+}
+@media (max-width: 767.98px) {
+	.site-footer-inner { flex-direction: column; gap: 0.8rem; }
+	.footer-name, .footer-copy { text-align: center; }
+}
+
+/* frosted-glass navbar on every page */
+.navbar.my-navbar,
+.navbar.bg-body.my-navbar {
+	background: rgba(14, 16, 20, 0.55) !important;
+	-webkit-backdrop-filter: blur(14px) saturate(150%);
+	backdrop-filter: blur(14px) saturate(150%);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+@keyframes hero-bob { 50% { transform: translate(-50%, 8px); } }
+
+/* bio paragraphs arrive last */
+.hero-bio p { animation: hero-up 1s ease-out backwards; }
+.hero-bio p:nth-child(1) { animation-delay: calc(var(--t) * 4.8s); }
+.hero-bio p:nth-child(2) { animation-delay: calc(var(--t) * 5.05s); }
+.hero-bio p:nth-child(3) { animation-delay: calc(var(--t) * 5.3s); }
+.hero-bio p:nth-child(4) { animation-delay: calc(var(--t) * 5.55s); }
+.intro-skip .hero-bio p { animation: none; }   /* visitor scrolled early: don't make them wait */
+
+@media (max-width: 767.98px) {
+	.hero, .hero-intro { min-height: 460px; }
+	.scene-layer { inset: -24px -40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#scene *, .hero *, .hero-bio p, .no-vt main, .no-vt footer, .title { animation: none !important; }
+	::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+	.js-about .about-title, .js-about .about-line { opacity: 1; transform: none; transition: none; letter-spacing: 0.55em; }
+}

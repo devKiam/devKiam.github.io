@@ -28,6 +28,27 @@
 
   gtag('config', 'G-1R99X0BD2D');
 </script>
+    <script>/* space scene state: set before first paint (see style.css) */
+        (function () {
+            var d = document.documentElement, home = false;
+            if (!("onpagereveal" in window)) d.classList.add("no-vt");
+            // page transitions: give the content its transition names only while one runs
+            var vt = function (e) { if (!e.viewTransition) return; d.classList.add("vt-run");
+                e.viewTransition.finished.finally(function () { d.classList.remove("vt-run"); }); };
+            addEventListener("pageswap", vt); addEventListener("pagereveal", vt);
+            try {
+                var s = sessionStorage, e = +s.getItem("sceneEpoch");
+                if (!e) { e = Date.now(); s.setItem("sceneEpoch", e); }
+                d.style.setProperty("--elapsed", ((Date.now() - e) / 1000).toFixed(2) + "s");
+                if (home) {
+                    d.classList.add("page-home", s.getItem("heroSeen") ? "hero-seen" : "intro-play");
+                    s.setItem("heroSeen", "1");
+                    if (s.getItem("lastPage") === "inner") d.classList.add("scene-dim", "scene-undim");
+                } else d.classList.add("scene-dim");
+                s.setItem("lastPage", home ? "home" : "inner");
+            } catch (x) { if (!home) d.classList.add("scene-dim"); }
+        })();</script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 
@@ -36,6 +57,16 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPQMXN5B"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+    <!-- space scene (shared by all pages; see style.css and hero-parallax.js) -->
+    <div id="scene" aria-hidden="true">
+        <div class="scene-layer sky-layer" data-depth="0.05">
+            <img src="assets/hero/space.svg" alt="" class="hero-sky">
+            <span class="shooting-star"></span>
+        </div>
+        <canvas id="net-canvas" class="scene-net"></canvas>
+        <div class="scene-vignette"></div>
+        <div class="scene-shade"></div>
+    </div>
 
   <!-- navigation bar -->
   <nav class="navbar sticky-top navbar-expand-lg bg-body my-navbar">
@@ -47,9 +78,7 @@
           <span></span>
         </span>
       </button>
-      <span style="font-size: 1.3rem; color: rgb(197,197,197);">
-        Md Nuho Ul Alam
-      </span>
+      <a href="index.html" class="nav-brand-name order-1">Md Nuho Ul Alam</a>
       <div class="collapse navbar-collapse justify-content-end order-2" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0 px-4">
           <li class="nav-item">
@@ -214,26 +243,19 @@
 
 
   <!-- Footer -->
-  <footer class="footer mt-auto py-3 bg-dark text-light">
-    <div class="container-sm text-center">
-      <div class="mb-1">
-        <a href="mailto:mdnuhoulalam@gmail.com" class="text-decoration-none text-light me-3">
-          <i class="bi bi-envelope-fill"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158" target="_blank"
-          class="text-decoration-none text-light me-3">
-          <i class="bi bi-linkedin"></i>
-        </a>
-        <a href="https://scholar.google.com/citations?user=EBcFeGUAAAAJ" target="_blank"
-          class="text-decoration-none text-light me-3">
-          <i class="bi bi-mortarboard-fill"></i>
-        </a>
-      </div>
-      <div class="small text-secondary">
-        &copy; 2025 Md Nuho Ul Alam. All rights reserved.
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer mt-auto">
+        <div class="container-sm site-footer-inner">
+            <span class="footer-name">Md Nuho Ul Alam</span>
+            <nav class="footer-links" aria-label="Profiles">
+                <a href="mailto:mdnuhoulalam@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/md-nuho-ul-alam-kiam-65064a158" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://scholar.google.com/citations?user=EBcFeGUAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="bi bi-mortarboard"></i></a>
+                <a href="https://www.researchgate.net/profile/Md-Nuho-Ul-Alam" target="_blank" rel="noopener" aria-label="ResearchGate"><span class="footer-rg"></span></a>
+            </nav>
+            <span class="footer-copy">&copy; 2026 &middot; All rights reserved</span>
+        </div>
+    </footer>
+    <script src="hero-parallax.js"></script>
 </body>
 
 </html>

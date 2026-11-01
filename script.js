@@ -39,23 +39,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-	let fadeDiv = document.querySelector('.page-fade');
-	if (!fadeDiv) {
-		fadeDiv = document.createElement('div');
-		fadeDiv.className = 'page-fade';
-		document.body.appendChild(fadeDiv);
-	}
-
+	// Page-to-page transitions.
+	// Browsers with cross-page view transitions (Chrome, Edge, Safari 18.2+) crossfade
+	// pages on their own (see @view-transition in style.css) while the space scene stays put.
+	// Other browsers: fade the page content out, keep the scene visible, then navigate.
 	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (!document.documentElement.classList.contains('no-vt') || prefersReducedMotion) return;
+
 	let isNavigating = false;
-	if (!prefersReducedMotion) {
-		fadeDiv.style.transition = 'none';
-		fadeDiv.classList.add('active');
-		void fadeDiv.offsetWidth;
-		fadeDiv.style.removeProperty('transition');
-		void fadeDiv.offsetWidth;
-		fadeDiv.classList.remove('active');
-	}
+	window.addEventListener('pageshow', () => {
+		isNavigating = false;
+		document.documentElement.classList.remove('page-leaving');
+	});
 
 	document.querySelectorAll('.nav-link').forEach(link => {
 		link.addEventListener('click', event => {
@@ -78,16 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			event.preventDefault();
 			isNavigating = true;
-			fadeDiv.classList.add('active');
-			const transitionDuration = getComputedStyle(fadeDiv).transitionDuration.split(',')[0].trim();
-			const duration = prefersReducedMotion
-				? 0
-				: transitionDuration.endsWith('ms')
-					? parseFloat(transitionDuration)
-					: parseFloat(transitionDuration) * 1000;
+			document.documentElement.classList.add('page-leaving');
 			setTimeout(() => {
 				window.location.assign(link.href);
-			}, duration);
+			}, 300);
 		});
 	});
 });
@@ -342,14 +331,16 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
 	const navbarName = document.getElementById('navbar-name');
 	const mainName = document.getElementById('main-name');
+	const hero = document.getElementById('hero');
+	if (!navbarName || !mainName) return;   // only the homepage hides/shows the navbar name
 
 	function checkNameVisibility() {
-		const rect = mainName.getBoundingClientRect();
-		if (rect.bottom < 60) { // 60px for navbar height
-			navbarName.style.opacity = 1;
-		} else {
-			navbarName.style.opacity = 0;
-		}
+		// homepage: the intro stays in place and fades, so show the navbar name once it has faded
+		const show = hero
+			? window.scrollY > hero.offsetHeight * 0.35
+			: mainName.getBoundingClientRect().bottom < 60; // 60px for navbar height
+		navbarName.style.opacity = show ? 1 : 0;
+		navbarName.style.pointerEvents = show ? '' : 'none';
 	}
 
 	window.addEventListener('scroll', checkNameVisibility);
