@@ -277,6 +277,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+	const modalPdfWrapper = document.getElementById('pubModalPdfWrapper');
+	const modalPdf = document.getElementById('pubModalPdf');
+	const fitPdfFrame = () => {
+		const width = modalPdfWrapper?.clientWidth;
+		if (!width || !modalPdf) return;
+
+		const renderWidth = Math.max(width, 360);
+		modalPdf.style.width = `${renderWidth}px`;
+		modalPdf.style.height = `${renderWidth / 1.414}px`;
+		modalPdf.style.transform = `scale(${width / renderWidth})`;
+	};
+	if (modalPdfWrapper && modalPdf) {
+		new ResizeObserver(fitPdfFrame).observe(modalPdfWrapper);
+	}
+
 	const currentPage = window.location.pathname.split('/').pop();
 	if (['research.html', 'projects.html'].includes(currentPage)) {
 		document.querySelectorAll('.pub-thumb-box .pub-thumb-img').forEach(img => {
@@ -296,12 +311,27 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Publication thumbnail popup
 	document.querySelectorAll('.pub-thumb-box').forEach(box => {
 		box.addEventListener('click', function () {
+			const pdf = box.getAttribute('data-pdf');
 			const img = box.querySelector('img');
 			const modalImg = document.getElementById('pubModalImg');
 			const modalCaption = document.getElementById('pubModalCaption');
-			modalImg.src = img.src;
-			modalImg.alt = img.alt;
-			modalCaption.textContent = img.getAttribute('data-caption') || img.alt || '';
+			if (pdf && modalPdf && modalPdfWrapper) {
+				modalImg.classList.add('d-none');
+				modalPdf.src = `${pdf}#toolbar=0&navpanes=0`;
+				modalPdfWrapper.classList.remove('d-none');
+				modalCaption.textContent = box.getAttribute('data-caption') || '';
+			} else if (img) {
+				if (modalPdfWrapper) modalPdfWrapper.classList.add('d-none');
+				if (modalPdf) {
+					modalPdf.src = 'about:blank';
+				}
+				modalImg.classList.remove('d-none');
+				modalImg.src = img.src;
+				modalImg.alt = img.alt;
+				modalCaption.textContent = img.getAttribute('data-caption') || img.alt || '';
+			} else {
+				return;
+			}
 			// Show Bootstrap modal
 			const modal = new bootstrap.Modal(document.getElementById('pubImgModal'));
 			modal.show();

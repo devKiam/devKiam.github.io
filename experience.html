@@ -125,9 +125,14 @@
                                 <div class="col-md-4">
                                     <div class="d-flex gap-1 flex-wrap justify-content-center pub-fig-row">
                                         <figure class="pub-thumb-box d-flex flex-column align-items-center w-100"
-                                            style="max-width: 200px;">
-                                            <img src="assets/Certificate_ESWA_Recognised_page-0001.jpg"
-                                                class="img-fluid pub-fade-img pub-thumb-img">
+                                            style="max-width: 220px;" data-pdf="assets/Certificate_ESWA_Recognised.pdf"
+                                            data-caption="Expert Systems with Applications reviewer certificate">
+                                            <div class="pub-thumb-img-wrap certificate-thumb-wrap">
+                                                <iframe src="assets/Certificate_ESWA_Recognised.pdf#toolbar=0&amp;navpanes=0"
+                                                    class="certificate-preview" title="ESWA reviewer certificate preview"
+                                                    tabindex="-1" aria-hidden="true"></iframe>
+                                                <span class="pub-thumb-overlay" aria-hidden="true">tap to enlarge</span>
+                                            </div>
                                         </figure>
                                     </div>
                                 </div>
@@ -222,8 +227,12 @@
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content bg-transparent border-0">
                         <div class="modal-body text-center p-0">
-                            <div class="pub-modal-img-wrapper">
+                            <div class="pub-modal-img-wrapper certificate-modal-container">
                                 <img id="pubModalImg" src="" alt="" class="img-fluid rounded" style="max-height:80vh;">
+                                <div id="pubModalPdfWrapper" class="certificate-modal-frame d-none">
+                                    <iframe id="pubModalPdf" title="Certificate PDF"
+                                        aria-label="Expanded certificate PDF"></iframe>
+                                </div>
                             </div>
                             <div id="pubModalCaption" class="mt-3 text-light bg-dark bg-opacity-75 rounded p-2 small">
                             </div>
