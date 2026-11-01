@@ -1526,7 +1526,7 @@ html body { background: transparent !important; }
 }
 .rs-section-title { font-size: 1.25rem; margin-top: 0.3rem; }
 .rs-summary { margin-bottom: 3.5rem; }
-.rs-summary p { color: #e0e0e0; }
+.rs-summary p:not(.term-line) { color: #e0e0e0; }
 .rs-keywords {
 	list-style: none;
 	padding: 0;
