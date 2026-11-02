@@ -352,11 +352,6 @@ html {
 	/* Adjust to match your navbar height */
 }
 
-#blogs {
-	scroll-margin-top: 60px;
-	/* Adjust to match your navbar height */
-}
-
 /* Sliding page transition */
 /* .page-transition {
   position: fixed;
@@ -820,33 +815,6 @@ button {
 	}
 }
 
-.about-bg {
-	position: relative;
-	overflow: hidden;
-	/* Remove background-image from here */
-}
-
-.about-bg::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background-image: url('assets/ac320603453222098e734c26e3f534b26c66aaaa07cac6ab8d03d2c22f95d6a8.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	opacity: 0.4;
-	/* Adjust this value for desired opacity */
-	z-index: 0;
-	pointer-events: none;
-	padding: 2rem;
-}
-
-.about-bg>* {
-	position: relative;
-	z-index: 1;
-	padding: 2rem;
-}
-
 .custom-toggler {
 	border: none !important;
 	background: transparent !important;
@@ -904,114 +872,6 @@ button {
 	top: 50%;
 	left: 0;
 	transform: translateY(-50%);
-}
-
-.research-bg {
-	position: relative;
-	overflow: hidden;
-	/* Remove background-image from here */
-}
-
-.research-bg::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background-image: url('assets/new_zealand_ocean_sunrise_79361_4000x2708.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	opacity: 0.4;
-	/* Adjust this value for desired opacity */
-	z-index: 0;
-	pointer-events: none;
-	padding: 2rem;
-}
-
-.research-bg>* {
-	position: relative;
-	z-index: 1;
-	padding: 2rem;
-}
-
-.education-bg {
-	position: relative;
-	overflow: hidden;
-	/* Remove background-image from here */
-}
-
-.education-bg::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background-image: url('assets/IMG_5117.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	opacity: 0.4;
-	/* Adjust this value for desired opacity */
-	z-index: 0;
-	pointer-events: none;
-	padding: 2rem;
-}
-
-.education-bg>* {
-	position: relative;
-	z-index: 1;
-	padding: 2rem;
-}
-
-.publications-bg {
-	position: relative;
-	overflow: hidden;
-	/* Remove background-image from here */
-}
-
-.publications-bg::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background-image: url('assets/pexels-pixabay-50686.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	opacity: 0.4;
-	/* Adjust this value for desired opacity */
-	z-index: 0;
-	pointer-events: none;
-	padding: 2rem;
-}
-
-.publications-bg>* {
-	position: relative;
-	z-index: 1;
-	padding: 2rem;
-}
-
-.projects-bg {
-	position: relative;
-	overflow: hidden;
-	/* Remove background-image from here */
-}
-
-.projects-bg::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background-image: url('assets/mojave.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	opacity: 0.4;
-	/* Adjust this value for desired opacity */
-	z-index: 0;
-	pointer-events: none;
-	padding: 2rem;
-}
-
-.projects-bg>* {
-	position: relative;
-	z-index: 1;
-	padding: 2rem;
 }
 
 .custom-list {

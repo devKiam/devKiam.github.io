@@ -17,7 +17,7 @@
 	const root = document.documentElement;
 	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	const PAGES = ['', 'index.html', 'education.html', 'research.html', 'publications.html',
-		'projects.html', 'experience.html', 'honors.html', 'blogs.html'];
+		'projects.html', 'experience.html', 'honors.html', 'skills.html'];
 	const pageOf = url => url.pathname.split('/').pop();
 	const isSitePage = url => url.origin === location.origin && PAGES.includes(pageOf(url));
 
