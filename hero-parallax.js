@@ -149,7 +149,8 @@
 	}
 
 	// --- drawing -----------------------------------------------------------------
-	const introStart = performance.now();
+	let introStart = performance.now();
+	document.addEventListener('boot:done', () => { introStart = performance.now(); });
 	const formLinks = root.classList.contains('intro-play');   // links appear during the first intro
 	const pts = [];
 	function draw(now) {

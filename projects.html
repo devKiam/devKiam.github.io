@@ -36,6 +36,12 @@
         (function () {
             var d = document.documentElement, home = false;
             if (!("onpagereveal" in window)) d.classList.add("no-vt");
+            // first page of a visit: play the short intro (boot-intro.js) unless reduced motion is on
+            try { if (!sessionStorage.getItem("bootSeen") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                d.classList.add("boot-pending");
+                // safety net: if the intro hasn't started within 2.5 s, show the site anyway
+                setTimeout(function () { if (!window.__bootStarted) d.classList.remove("boot-pending"); }, 2500);
+            } } catch (x) { }
             // page transitions: give the content its transition names only while one runs
             var vt = function (e) { if (!e.viewTransition) return; d.classList.add("vt-run");
                 e.viewTransition.finished.finally(function () { d.classList.remove("vt-run"); }); };
@@ -53,6 +59,7 @@
             } catch (x) { if (!home) d.classList.add("scene-dim"); }
         })();</script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <script src="boot-intro.js" defer></script>
 </head>
 
 
