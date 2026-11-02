@@ -9,6 +9,8 @@
  *   stops reacting to the cursor, so it stays out of the way of reading. Arriving back on
  *   the homepage it brightens again. On the first visit the links "form" during the intro.
  * The homepage intro itself is pure CSS, so it still plays if this script fails.
+ * Pages are swapped without reloading (site-router.js): the canvas keeps running, and
+ * SiteScene.pageChanged() re-reads the page-specific parts (homepage intro, About heading).
  */
 (function () {
 	const scene = document.getElementById('scene');
@@ -16,8 +18,6 @@
 	if (!scene || !canvas) return;
 	const ctx = canvas.getContext('2d');
 	const root = document.documentElement;
-	const hero = document.getElementById('hero');
-	const isHome = !!hero;
 	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	const store = {
@@ -26,29 +26,46 @@
 	};
 	const epoch = +store.get('sceneEpoch') || Date.now();
 
-	// --- full strength / dimmed ---------------------------------------------------
+	// --- page-specific parts (re-read after every page change) ---------------------
+	let hero = null, isHome = false, aboutHead = null, intro = null, scrollCue = null, layers = [];
+
+	function sizeAbout() {
+		const footer = document.querySelector('.site-footer');   // may come after this script
+		if (footer) root.style.setProperty('--footer-h', footer.offsetHeight + 'px');
+	}
+	document.addEventListener('DOMContentLoaded', sizeAbout);
+	window.addEventListener('resize', sizeAbout);
+
+	// homepage: "About me" fades in as the photo fades out, and the network dims while reading
+	function onPageScroll() {
+		if (!isHome) return;
+		if (aboutHead && !reduce) aboutHead.classList.toggle('about-in', window.scrollY > hero.offsetHeight * 0.22);
+		root.classList.toggle('scene-dim', window.scrollY > hero.offsetHeight * 0.3);
+	}
+	window.addEventListener('scroll', onPageScroll, { passive: true });
 	window.addEventListener('pageshow', () => store.set('lastPage', isHome ? 'home' : 'inner'));
-	if (isHome) {
-		// "About me" heading: fades in as the photo fades out (and back out on the way up)
-		const aboutHead = document.querySelector('.about-head');
-		const sizeAbout = () => {
-			const footer = document.querySelector('.site-footer');   // may come after this script
-			if (footer) root.style.setProperty('--footer-h', footer.offsetHeight + 'px');
-		};
-		sizeAbout();
-		document.addEventListener('DOMContentLoaded', sizeAbout);
-		window.addEventListener('resize', sizeAbout);
-		if (aboutHead && !reduce) {
-			root.classList.add('js-about');
-			const revealAbout = () => aboutHead.classList.toggle('about-in', window.scrollY > hero.offsetHeight * 0.22);
-			revealAbout();
-			window.addEventListener('scroll', revealAbout, { passive: true });
+
+	function setupPage() {
+		hero = document.getElementById('hero');
+		isHome = !!hero;
+		aboutHead = isHome ? document.querySelector('.about-head') : null;
+		intro = hero && hero.querySelector('.hero-intro');
+		scrollCue = hero && hero.querySelector('.hero-scroll');
+		layers = Array.from(document.querySelectorAll('#scene [data-depth], #hero [data-depth]'))
+			.map(el => ({ el, depth: parseFloat(el.dataset.depth) || 0 }));
+		store.set('lastPage', isHome ? 'home' : 'inner');
+		if (isHome) {
+			sizeAbout();
+			if (aboutHead && !reduce) root.classList.add('js-about');
+			if (root.classList.contains('scene-undim')) {
+				// arrived from another page: start dimmed, then brighten
+				requestAnimationFrame(() => requestAnimationFrame(() => { root.classList.remove('scene-undim'); onPageScroll(); }));
+			} else onPageScroll();
+		} else {
+			root.classList.add('scene-dim');
 		}
-		const updateBlur = () => root.classList.toggle('scene-dim', window.scrollY > hero.offsetHeight * 0.3);
-		if (root.classList.contains('scene-undim')) {
-			requestAnimationFrame(() => requestAnimationFrame(() => { root.classList.remove('scene-undim'); updateBlur(); }));
-		} else updateBlur();
-		window.addEventListener('scroll', updateBlur, { passive: true });
+		applyLayers();
+		initTermLines();
 	}
 
 	// --- network model -----------------------------------------------------------
@@ -115,10 +132,6 @@
 	}
 
 	// --- parallax for the sky and the homepage intro ------------------------------
-	const layers = Array.from(document.querySelectorAll('#scene [data-depth], #hero [data-depth]'))
-		.map(el => ({ el, depth: parseFloat(el.dataset.depth) || 0 }));
-	const intro = hero && hero.querySelector('.hero-intro');
-	const scrollCue = hero && hero.querySelector('.hero-scroll');
 	function applyLayers() {
 		for (const l of layers) {
 			l.el.style.transform = `translate3d(${(-curX * 60 * l.depth).toFixed(2)}px, ${(-curY * 26 * l.depth).toFixed(2)}px, 0)`;
@@ -202,7 +215,8 @@
 
 	resize();
 	window.addEventListener('resize', resize);
-	applyLayers();
+	window.SiteScene = { pageChanged: setupPage };
+	setupPage();
 	window.addEventListener('scroll', applyLayers, { passive: true });   // intro fade (also with reduced motion)
 	if (reduce) { draw(performance.now()); return; }
 
@@ -223,12 +237,11 @@
  * Terminal line: types its text, pauses, erases, and repeats while it is on screen.
  * Markup: <p class="term-line" data-text="...">  (full text stays readable to screen readers)
  */
-(function () {
-	const lines = document.querySelectorAll('.term-line[data-text]');
-	if (!lines.length) return;
+function initTermLines() {
 	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	lines.forEach(line => {
+	document.querySelectorAll('.term-line[data-text]:not([data-ready])').forEach(line => {
+		line.dataset.ready = '1';
 		const text = line.dataset.text;
 		line.setAttribute('aria-label', '> ' + text);
 		line.innerHTML =
@@ -239,7 +252,7 @@
 
 		let i = 0, typing = true, timer = null, visible = false;
 		function step() {
-			if (!visible) { timer = null; return; }
+			if (!visible || !line.isConnected) { timer = null; return; }
 			if (typing) {
 				out.textContent = text.slice(0, ++i);
 				if (i >= text.length) { typing = false; timer = setTimeout(step, 2600); return; }
@@ -259,4 +272,5 @@
 	function escapeHtml(t) {
 		return t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 	}
-})();
+}
+if (!document.getElementById('scene')) initTermLines();   // pages without the scene still get it

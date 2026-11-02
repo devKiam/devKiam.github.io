@@ -1052,7 +1052,13 @@ button {
 :root { --t: 1; }
 .hero-seen { --t: 0.2; }
 
-html { background: #05060a; }
+html {
+	background: #05060a;
+	/* always reserve the scrollbar's space, so short pages (e.g. Education) don't shift the
+	   navbar sideways when the scrollbar disappears */
+	overflow-y: scroll;
+	scrollbar-gutter: stable;
+}
 html body { background: transparent !important; }
 
 /* ---- page-to-page navigation: a "focus pull" ----
@@ -1063,6 +1069,10 @@ html body { background: transparent !important; }
    so they never affect layering otherwise (e.g. the publication image pop-up). */
 @view-transition { navigation: auto; }
 .my-navbar { view-transition-name: site-nav; }
+/* the navbar stays rock-steady during page changes: no crossfade, no dimming */
+::view-transition-group(site-nav) { animation: none; }
+::view-transition-old(site-nav) { display: none; }
+::view-transition-new(site-nav) { animation: none; }
 .vt-run main { view-transition-name: page-main; }
 .vt-run .site-footer { view-transition-name: page-foot; }
 .vt-run .hero { view-transition-name: page-hero; }
@@ -1126,8 +1136,10 @@ html body { background: transparent !important; }
 	text-decoration: none;
 	margin-right: 1rem;
 	padding: 0.3rem 0;
-	transition: color 0.2s, text-shadow 0.2s;
+	transition: color 0.2s, text-shadow 0.2s, opacity 0.4s;
 }
+/* homepage: the navbar name appears once the intro has faded (class set by script.js) */
+.page-home .nav-brand-name:not(.is-shown) { opacity: 0; pointer-events: none; }
 .nav-brand-name::before {
 	content: "";
 	width: 6px;
@@ -1721,3 +1733,6 @@ html body { background: transparent !important; }
 	box-shadow: 0 0 12px rgba(140, 200, 255, 0.25);
 }
 .rs-figs .rs-fig-photo .pub-thumb-img { height: 200px; object-fit: cover; background: none; }
+
+/* links to a section (e.g. research.html#undergraduate-thesis) stop below the sticky navbar */
+main [id] { scroll-margin-top: 80px; }
